@@ -7,7 +7,7 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC >
 <html>
 <head>
 <base href=" <%=basePath%>">
@@ -75,7 +75,7 @@
 						<!-- CONTACT INFO -->
 						<div class="contact-info">
 							<i class="iconfont-headphones round-icon"></i> <strong>+86
-								（100）0000</strong> <span>(Mon- Fri: 09.00 - 21.00)</span>
+								（100）0000</strong> <span>(Mon- Fri: 09.00 - 21.00)${listc[1].city_name}</span>
 						</div>
 						<!-- // CONTACT INFO -->
 					</div>
@@ -107,7 +107,7 @@
 
 								<div id="sub-cart" class="sub-header">
 									<div class="cart-header">
-										<span>你的购物车目前为空</span> <small><a href="cart.html">(See
+										<span>你的购物车目前为空</span> <small><a href="cart.jsp">(See
 												All)</a></small>
 									</div>
 									<ul class="cart-items product-medialist unstyled clearfix"></ul>
@@ -117,7 +117,7 @@
 												class="pull-right total">$ 0</span>
 										</div>
 										<div class="text-right">
-											<a href="cart.html"
+											<a href="cart.jsp"
 												class="btn btn-default btn-round view-cart">查看购物车</a>
 										</div>
 									</div>
@@ -227,7 +227,7 @@
 
 
 								<div class="panel-body">
-									<form class="form-horizontal" role="form">
+									<form class="form-horizontal" role="form" action="">
 										<div class="row">
 											<div class="col-xs-12 col-sm-12 col-md-6">
 												<div class="form-group stylish-input">
@@ -251,6 +251,7 @@
 													<div class="col-sm-8 col-lg-8">
 														<input type="text" class="form-control" id="inputPostcode" />
 													</div>
+													
 												</div>
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-6">
@@ -259,19 +260,23 @@
 													<label for="inputCity"
 														class="col-sm-4 col-lg-4 control-label required">省份</label>
 													<div class="col-sm-8 col-lg-8">
-														<select class="form-control" id="inputCountry">
+														<select class="form-control" id="province">
 															<option>选择省份</option>
+															<c:forEach items="${listp}" var="listp">
+																<option>${listp.province_name}</option>
+															</c:forEach>
 														</select>
 													</div>
-
 												</div>
-
 												<div class="form-group stylish-input">
 													<label for="inputCountry"
 														class="col-sm-4 col-lg-4 control-label required">城市</label>
 													<div class="col-sm-8 col-lg-8">
-														<select class="form-control" id="inputCountry">
+														<select class="form-control" id="city">
 															<option>选择城市</option>
+<%-- 															<c:forEach items="${listc}" var="listc"> --%>
+<%-- 																<option>${listc.city_name }</option> --%>
+<%-- 															</c:forEach> --%>
 														</select>
 													</div>
 												</div>
@@ -279,8 +284,11 @@
 													<label for="inputState"
 														class="col-sm-4 col-lg-4 control-label required">地区</label>
 													<div class="col-sm-8 col-lg-8">
-														<select class="form-control" id="inputState">
+														<select class="form-control" id="area">
 															<option>选择地区</option>
+<%-- 															<c:forEach items="${lista}" var="lista"> --%>
+<%-- 																<option>${lista.area_name }</option> --%>
+<%-- 															</c:forEach> --%>
 														</select>
 													</div>
 												</div>
@@ -288,9 +296,61 @@
 													<label for="inputAddress1"
 														class="col-sm-4 col-lg-4 control-label required">详细地址</label>
 													<div class="col-sm-8 col-lg-8">
-														<input type="text" class="form-control" id="inputAddress1" />
+														<input type="text" class="form-control" id="inputAddress" />
 													</div>
 												</div>
+													
+													<script type="text/javascript">
+														$("#province").change(function(){
+															var province = $("#province option:selected").val(); //省名
+														      
+															$.ajax({
+																url:"<%=basePath%>listc.do",
+																type:"post",
+																data:{"province":province},
+ 																dataType:"json",
+																success:function (msg) { 
+																	//alert(msg);
+																	//var s=JSON.parse(msg);
+																	var str="<option>"+"选择城市"+"</option>";
+												                    for(var i in msg){
+												                    	 //alert(i);
+												                            str=str+"<option>"+msg[i].city_name+"</option>";
+												                         //alert(str); 
+												                         $("#city").html(str);
+												                    }
+																}, 
+												                error:function(){alert("wrong!");},
+												
+															});
+														})
+														
+														
+														$("#city").change(function(){
+															var city = $("#city option:selected").val(); //城市名
+														$.ajax({
+															url:"<%=basePath%>lista.do",
+															type:"post",
+															data:{"city":city},
+																dataType:"json",
+															success:function (data) { 
+																//alert(msg);
+																//var s=JSON.parse(msg);
+																var str="<option>"+"选择地区"+"</option>";
+											                    for(var i in data){
+											                    	 //alert(i);
+											                            str=str+"<option>"+data[i].area_name+"</option>";
+											                         //alert(str); 
+											                         $("#area").html(str);
+											                    }
+															}, 
+											                error:function(){alert("wrong!");},
+											
+														});
+													})
+													
+													</script>
+													
 											</div>
 										</div>
 								</div>
