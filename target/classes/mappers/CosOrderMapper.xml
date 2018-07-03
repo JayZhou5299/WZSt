@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.dao.CosOrderDao">
+	<select id="getorderByid" parameterType="int" resultType="com.model.CosOrder">
+		select
+		* from cos_order where User_Id=#{user_id};
+	</select>
+
+	<select id="getorderBytime" resultType="com.model.CosOrder">
+		select * from cos_order
+		where Order_Date between #{order_date_start} and
+		#{order_date_end}
+	</select>
+
+	<update id="updateorder" parameterType="com.model.CosOrder">
+		update cos_order set
+		Order_State = #{order_state} where Order_Id=#{order_id};
+	</update>
+
+	<insert id="saveorder" parameterType="com.model.CosOrder">
+		insert into cos_order
+		(User_Id,Order_Price,Order_Cut,Order_Deliv,Order_State,Order_Date)
+		values
+		(#{user_id},#{order_price},#{order_cut},#{order_deliv},#{order_state},#{order_date})
+	</insert>
+
+</mapper>

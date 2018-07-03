@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.dao.NotesDao">
+	<select id="ListNotes" resultType="com.model.Notes">
+		select * from notes ORDER BY
+		Note_Hot desc limit 8;
+	</select>
+
+	<insert id="saveNotes" parameterType="com.model.Notes">
+		insert into notes
+		(Note_Pic,Note_Des,User_Id,Note_Hot,Note_Name)
+		values
+		(#{note_pic},#{note_des},#{user_id},#{note_hot},#{note_name});
+	</insert>
+
+	<delete id="deleteByNoteId" parameterType="com.model.Notes">
+		delete from notes
+		where Note_Id=#{note_id};
+	</delete>
+
+	<select id="SearchNotes" parameterType="String" resultType="com.model.Notes">
+		select * from notes where Note_Des like '%#{note_des}%'
+	</select>
+
+	<!-- <select id="SearchNotesByclass" parameterType="String" -->
+	<!-- resultType="com.model.Notes"> -->
+	<!-- select * from notes where Note_Id like '%#{note_id}%' -->
+	<!-- </select> -->
+
+	<select id="listallnotes" resultType="com.model.Notes">
+		select * from notes
+	</select>
+
+
+	<select id="listnotesbyuserid"  parameterType="int"  resultType="com.model.Notes">
+		select * from notes where User_Id = #{user_id}
+	</select>
+
+
+</mapper>

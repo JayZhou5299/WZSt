@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.dao.OrderItemDao">
+	<select id="getItemByorderid" parameterType="int"
+		resultType="com.model.OrderItem">
+		select * from order_item where Order_Id=#{order_id}
+	</select>
+	<insert id="saveCart" parameterType="com.model.OrderItem">
+		insert into order_item
+		(item_Id,Goods_Id,Goods_Name,Goods_Num,Goods_Image,Goods_Price,Order_Id)
+		values
+		(#{item_id},#{goods_id},#{goods_name},#{goods_num},#{goods_image},#{goods_price},#{order_id})
+	</insert>
+</mapper>

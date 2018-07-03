@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.dao.GoodsDao">
+		<select id="ListGoods" resultType="com.model.Goods">
+			select * from goods order by Goods_Hot desc limit 8
+		</select>
+		<insert id="saveGoods" parameterType="com.model.Goods">
+			insert into goods (Goods_Name,Big_Class,Smal_Class,Goods_Class,Goods_Pic,Goods_Price,Create_Time,Modified_Time,Goods_Unit,Goods_Hot)
+			values (#{goods_name},#{big_class},#{smal_class},#{goods_class},#{goods_pic},#{goods_price},#{create_time},#{modified_time},#{goods_unit},#{goods_hot});
+		</insert>
+		
+		<delete id="deleteGoodsById" parameterType="int">
+			delete * from goods where Goods_Id = #{goods_id}
+		</delete>
+		
+          <select id="SearchGoods" parameterType="String" resultType="com.model.Goods">
+            select * from goods where Goods_Name = #{name}
+           </select>
+
+            <select id="SearchGoodsByclass" parameterType="String" resultType="com.model.Goods">
+           		select * from goods where Smal_Class = #{smal_class}
+           </select>
+           
+           <select id="getGoodsById" parameterType="int" resultType="com.model.Goods">
+              select * from goods where Goods_Id = #{goods_id}
+           </select>
+           
+           <select id="ListallGoods" resultType="com.model.Goods">
+              select * from goods 
+           </select>
+           
+           
+</mapper>

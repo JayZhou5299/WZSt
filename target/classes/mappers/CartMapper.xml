@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.dao.CartDao">
+	<select id="getcartByuserid" parameterType="int" resultType="com.model.Cart">
+		select * from cart where User_Id = #{user_id};
+	</select>
+
+	<insert id="saveCart" parameterType="com.model.Cart">
+		insert into cart
+		(User_Id,Goods_Id,Goods_Name,Goods_Image,Goods_Price,Goods_Num)
+		values
+		(#{user_id},#{goods_id},#{goods_name},#{goods_image},#{goods_price},#{goods_num})
+	</insert>
+
+	<delete id="deleteCartByid" parameterType="int">
+		delete from cart where Cart_Id = #{cart_id};
+	</delete>
+
+</mapper>

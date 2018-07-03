@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserDao">
+	<select id="getPasswordByemail" parameterType="String"
+		resultType="String">
+		select User_Pwd from user where User_Email = #{user_email};
+	</select>
+
+	<insert id="saveUser" parameterType="com.model.User">
+		insert into user
+		(User_Name,User_Pwd,User_Integ,User_Balance,User_Email,User_Tel,User_Sex)
+		values
+		(#{user_name},#{user_pwd},#{user_integ},#{user_balance},#{user_email},#{user_tel},#{user_sex})
+	</insert>
+
+	<select id="getUserByemail" parameterType="String" resultType="com.model.User">
+		select * from user where User_Email = #{user_email};
+	</select>
+
+	<update id="updateUser" parameterType="com.model.User">
+		update user set User_Pwd = #{user_pwd} , User_Tel = #{user_tel} where
+		User_Email = #{user_email}
+	</update>
+
+
+	<!-- <select id="listuser" resultType="com.model.User"> -->
+	<!-- select * from user -->
+	<!-- </select> -->
+
+</mapper>
+
