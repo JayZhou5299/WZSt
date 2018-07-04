@@ -256,7 +256,7 @@
 					<span class="pull-left">总价:</span> <span class="pull-right">$1050.00</span>
 				</div>
 				<div class="text-center">
-					<a class="btn btn-round btn-default uppercase" href="Order.jsp">
+					<a class="btn btn-round btn-default uppercase" href="cosprovinces/listp.do">
 						结 &nbsp&nbsp&nbsp&nbsp&nbsp账</a>
 				</div>
 			</div>

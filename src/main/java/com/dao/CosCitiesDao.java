@@ -9,4 +9,6 @@ public interface CosCitiesDao {
 	// 查询所有城市信息
 	public List<CosCities> getCitiesByprovince(String province_code);
 
+	public String getCode(String name);
+	
 }

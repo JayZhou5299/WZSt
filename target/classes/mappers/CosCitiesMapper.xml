@@ -4,6 +4,12 @@
 <mapper namespace="com.dao.CosCitiesDao">
 	<select id="getCitiesByprovince" parameterType="String"
 		resultType="com.model.CosCities">
-		select * from cos_areas where Province_Code= #{province_code}
+		select * from cos_cities where Province_Code= #{province_code}
+	</select>
+	
+	
+	<select id="getCode" parameterType="String"
+		resultType="String">
+		select City_Code from cos_cities where City_Name = #{city_name}
 	</select>
 </mapper>

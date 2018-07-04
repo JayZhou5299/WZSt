@@ -5,4 +5,9 @@
 	<select id="getAllProvince" resultType="com.model.CosProvinces">
 		select * from cos_provinces
 	</select>
+	
+	<select id="getCode" resultType="String" parameterType="String">
+		select Province_Code from cos_provinces where Province_name = #{province_name}
+	</select>
+	
 </mapper>

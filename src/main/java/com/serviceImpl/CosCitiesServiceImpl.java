@@ -19,4 +19,8 @@ public class CosCitiesServiceImpl implements CosCitiesService {
 		return cosCitiesDao.getCitiesByprovince(province_code);
 	}
 
+	public String getCode(String name) {
+		return cosCitiesDao.getCode(name);
+	}
+
 }

@@ -9,4 +9,6 @@ public interface CosAreasDao {
 	// 查询所有省份信息
 	public List<CosAreas> getAreasByCities(String city_code);
 
+	public String getCode(String name);
+	
 }

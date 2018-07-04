@@ -9,15 +9,20 @@ import org.springframework.stereotype.Service;
 import com.dao.CosAreasDao;
 
 import com.model.CosAreas;
+import com.service.CosAreasService;
 
 @Service
-public class CosAreasServiceImpl implements CosAreasDao {
+public class CosAreasServiceImpl implements CosAreasService {
 
 	@Resource
 	CosAreasDao cosAreasDao;
 
-	public List<CosAreas> getAreasByCities(String city_code) {
+	public List<CosAreas> ListAreas(String city_code) {
 		return cosAreasDao.getAreasByCities(city_code);
+	}
+
+	public String getCode(String name) {
+		return cosAreasDao.getCode(name);
 	}
 
 }

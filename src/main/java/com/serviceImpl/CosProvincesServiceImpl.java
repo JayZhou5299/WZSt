@@ -18,7 +18,13 @@ public class CosProvincesServiceImpl implements CosProvincesService {
 	CosProvincesDao cosProvincesDao;
 
 	public List<CosProvinces> ListProvince() {
+		System.out.println(cosProvincesDao.getAllProvince());
 		return cosProvincesDao.getAllProvince();
 	}
+
+	public String getCode(String name) {
+		return cosProvincesDao.getCode(name);
+	}
+
 
 }

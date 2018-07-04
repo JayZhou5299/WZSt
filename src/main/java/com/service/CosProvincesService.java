@@ -8,4 +8,6 @@ public interface CosProvincesService {
 	// 查询所有省份信息，作为下拉列表
 	public List<CosProvinces> ListProvince();
 
+	public String getCode(String name);
+	
 }

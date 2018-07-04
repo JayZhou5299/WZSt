@@ -5,15 +5,20 @@ import com.model.CosProvinces;
 import com.serviceImpl.CosAreasServiceImpl;
 import com.serviceImpl.CosCitiesServiceImpl;
 
+import net.sf.json.JSONArray;
 
 import java.util.ArrayList;
 
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.*;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -24,14 +29,28 @@ public class CosAreasAction {
 	@Resource
 	CosAreasServiceImpl cosAreasServiceImpl;
 	
-	@RequestMapping("list.do")
-	public ModelAndView list(CosCities cosCities){
+	@Resource
+	CosCitiesServiceImpl cosCityServiceImpl;
+	@RequestMapping("lista.do")
+	
+	@ResponseBody
+	public String getArea(HttpSession session,CosCities city,HttpServletRequest request,ModelMap map){
+		String cityname=request.getParameter("city");
+
+		System.out.println("选择的市"+cityname);
+		String code = cosCityServiceImpl.getCode(cityname);
+		System.out.println("市的编号"+code);
 		List<CosAreas> list = new ArrayList<CosAreas>();
-		list = cosAreasServiceImpl.getAreasByCities(cosCities.getCity_code());
-//		CosAreas cosAreas = list.get(2);
-//		System.out.println(cosAreas.getArea_name());
-		ModelAndView mav = new ModelAndView("跳轉的頁面");
-		mav.addObject("list", list);
-		return mav;
+		list = cosAreasServiceImpl.ListAreas(code);
+		//mav.addObject("listc", list);
+		//map.put("listc", list);
+	//	session.setAttribute("listc", list);
+		//return ResponseMessageEnum.SUCCESS.appendPageDataListToString(listc);
+		
+		JSONArray jsonArray = JSONArray.fromObject(list);
+        System.out.println(jsonArray.toString());
+		
+		return jsonArray.toString();
 	}	
+	
 }

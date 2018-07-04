@@ -7,4 +7,6 @@ import com.model.CosProvinces;
 public interface CosProvincesDao {
 	// 查询所有省份信息
 	public List<CosProvinces> getAllProvince();
+	
+	public String getCode(String name);
 }

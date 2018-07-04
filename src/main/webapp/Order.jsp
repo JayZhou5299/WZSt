@@ -305,7 +305,7 @@
 															var province = $("#province option:selected").val(); //省名
 														      
 															$.ajax({
-																url:"<%=basePath%>listc.do",
+																url:"coscities/listc.do",
 																type:"post",
 																data:{"province":province},
  																dataType:"json",
@@ -329,7 +329,7 @@
 														$("#city").change(function(){
 															var city = $("#city option:selected").val(); //城市名
 														$.ajax({
-															url:"<%=basePath%>lista.do",
+															url:"cosareas/lista.do",
 															type:"post",
 															data:{"city":city},
 																dataType:"json",
