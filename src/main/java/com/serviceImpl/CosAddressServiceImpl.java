@@ -22,7 +22,7 @@ public class CosAddressServiceImpl implements CosAddressService {
 	}
 
 	public void saveaddress(CosAddress cosaddress) {
-		// TODO Auto-generated method stub
+		cosAddressDao.saveCosAddress(cosaddress);
 		
 	}
 

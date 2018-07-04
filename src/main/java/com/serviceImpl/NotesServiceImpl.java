@@ -47,6 +47,13 @@ public class NotesServiceImpl implements NotesService {
 	public List<Notes> ListallNotes() {
 		return notesDao.listallnotes();
 	}
+
+	public void addhot(int note_id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 	
 	
 

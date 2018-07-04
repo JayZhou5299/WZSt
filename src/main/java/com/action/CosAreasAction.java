@@ -37,9 +37,9 @@ public class CosAreasAction {
 	public String getArea(HttpSession session,CosCities city,HttpServletRequest request,ModelMap map){
 		String cityname=request.getParameter("city");
 
-		System.out.println("选择的市"+cityname);
+//		System.out.println("选择的市"+cityname);
 		String code = cosCityServiceImpl.getCode(cityname);
-		System.out.println("市的编号"+code);
+//		System.out.println("市的编号"+code);
 		List<CosAreas> list = new ArrayList<CosAreas>();
 		list = cosAreasServiceImpl.ListAreas(code);
 		//mav.addObject("listc", list);

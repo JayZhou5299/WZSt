@@ -227,7 +227,7 @@
 
 
 								<div class="panel-body">
-									<form class="form-horizontal" role="form" action="">
+									<form class="form-horizontal" role="form" action="cosaddress/add.do" method="post">
 										<div class="row">
 											<div class="col-xs-12 col-sm-12 col-md-6">
 												<div class="form-group stylish-input">
@@ -235,23 +235,15 @@
 														class="col-sm-4 col-lg-4 control-label required">姓名</label>
 													<div class="col-sm-8 col-lg-8">
 														<input type="text" class="form-control"
-															id="inputFirstname" />
+															name="recv_person"/>
 													</div>
 												</div>
 												<div class="form-group stylish-input">
 													<label for="inputPhone"
 														class="col-sm-4 col-lg-4 control-label required">电话号码</label>
 													<div class="col-sm-8 col-lg-8">
-														<input type="text" class="form-control" id="inputPhone" />
+														<input type="text" class="form-control" name="recv_tel" />
 													</div>
-												</div>
-												<div class="form-group stylish-input">
-													<label for="inputPostcode"
-														class="col-sm-4 col-lg-4 control-label required">邮编</label>
-													<div class="col-sm-8 col-lg-8">
-														<input type="text" class="form-control" id="inputPostcode" />
-													</div>
-													
 												</div>
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-6">
@@ -260,7 +252,7 @@
 													<label for="inputCity"
 														class="col-sm-4 col-lg-4 control-label required">省份</label>
 													<div class="col-sm-8 col-lg-8">
-														<select class="form-control" id="province">
+														<select class="form-control" id="province" name="recv_province">
 															<option>选择省份</option>
 															<c:forEach items="${listp}" var="listp">
 																<option>${listp.province_name}</option>
@@ -272,7 +264,7 @@
 													<label for="inputCountry"
 														class="col-sm-4 col-lg-4 control-label required">城市</label>
 													<div class="col-sm-8 col-lg-8">
-														<select class="form-control" id="city">
+														<select class="form-control" id="city" name="recv_city">
 															<option>选择城市</option>
 <%-- 															<c:forEach items="${listc}" var="listc"> --%>
 <%-- 																<option>${listc.city_name }</option> --%>
@@ -284,7 +276,7 @@
 													<label for="inputState"
 														class="col-sm-4 col-lg-4 control-label required">地区</label>
 													<div class="col-sm-8 col-lg-8">
-														<select class="form-control" id="area">
+														<select class="form-control" id="area" name="recv_area">
 															<option>选择地区</option>
 <%-- 															<c:forEach items="${lista}" var="lista"> --%>
 <%-- 																<option>${lista.area_name }</option> --%>
@@ -296,7 +288,7 @@
 													<label for="inputAddress1"
 														class="col-sm-4 col-lg-4 control-label required">详细地址</label>
 													<div class="col-sm-8 col-lg-8">
-														<input type="text" class="form-control" id="inputAddress" />
+														<input type="text" class="form-control"  name="recv_addr"/>
 													</div>
 												</div>
 													
@@ -329,7 +321,7 @@
 														$("#city").change(function(){
 															var city = $("#city option:selected").val(); //城市名
 														$.ajax({
-															url:"cosareas/lista.do",
+															url:"cosAreas/lista.do",
 															type:"post",
 															data:{"city":city},
 																dataType:"json",

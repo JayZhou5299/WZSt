@@ -11,12 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.support.SessionAttributeStore;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -37,6 +34,7 @@ public class UserAction {
 	//用户注册
 	@RequestMapping("registe.do")
 	public ModelAndView register(User user){
+		System.out.println(user.getUser_name());
 		userServiceImpl.saveUser(user);
 		ModelAndView mav = new ModelAndView("checkout");
 		return mav;
@@ -48,10 +46,10 @@ public class UserAction {
 		Map<String,Object> data = new HashMap<String,Object>();
 		ModelAndView mav = null; 
 		User user = userServiceImpl.loginUser(email,password);
-		System.out.println(email+"  oooooooo"+email);
+//		System.out.println(email+"  oooooooo"+email);
 //		System.out.println(user);
 		if(user!= null){
-			System.out.println(email+" ooooooo"+password);
+//			System.out.println(email+" ooooooo"+password);
 			session.setAttribute("User", user);
 //			System.out.println(user.getUser_id());
 			mav = new ModelAndView("index",data);
@@ -61,7 +59,7 @@ public class UserAction {
 			mav = new ModelAndView("login");
 		}
 		
-		System.out.println(user.getUser_id());
+//		System.out.println(user.getUser_id());
 		List<Notes> list = notesServiceImpl.SearchNotesByUser(user.getUser_id());
 
 //		for(int i=0;i<list.size();i++){

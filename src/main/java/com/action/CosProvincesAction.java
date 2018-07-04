@@ -22,7 +22,7 @@ public class CosProvincesAction {
 	public ModelAndView register(){
 		List<CosProvinces> list = new ArrayList<CosProvinces>();
 		list = cosprovincesserviceimpl.ListProvince();
-		System.out.println("sheng"+list);
+//		System.out.println("sheng"+list);
 		ModelAndView mav = new ModelAndView("Order");
 		mav.addObject("listp", list);
 		return mav;

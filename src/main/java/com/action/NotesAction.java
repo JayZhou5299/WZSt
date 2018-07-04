@@ -104,6 +104,8 @@ public class NotesAction {
 			if (!dest.exists()) {
 				dest.mkdirs();
 			}
+			System.out.println(realPath);
+			System.out.println(filename);
 			note_pic.transferTo(dest);
 			Notes notes = new Notes();
 			notes.setNote_des(note_des);
@@ -137,5 +139,21 @@ public class NotesAction {
 		ModelAndView mav = new ModelAndView("userInfo");
 		return mav;
 	}
+	
+	
+	@RequestMapping("addhot.do")
+	public ModelAndView addhot(int note_id){
+		
+//		User user = (User) session.getAttribute("User");
+//		notesServiceImpl.SearchNotesByUser(user.getUser_id());
+		
+		ModelAndView mav = new ModelAndView("userInfo");
+		return mav;
+	}
+	
+	
+	
+	
+	
 
 }

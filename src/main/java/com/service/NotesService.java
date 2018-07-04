@@ -2,6 +2,8 @@ package com.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Update;
+
 import com.model.Notes;
 
 public interface NotesService {
@@ -25,6 +27,8 @@ public interface NotesService {
 
 	//展示所有的笔记
 	public List<Notes>  ListallNotes();
+	
+	public void addhot(int note_id);
 	
 }
 

@@ -140,12 +140,12 @@
 		  	<div style="margin-bottom:10px">
 		  	<span style="margin-right:14px">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</span>
 					<label>
-				    <input type="radio" name="user_sex"  id="optionsRadios2" value="option1">
+				    <input type="radio" name="user_sex"  id="optionsRadios2" value="男">
 				    男
 				  </label>
 				  &nbsp;&nbsp;&nbsp;&nbsp;
 				  <label>
-				    <input type="radio" name="user_sex"  id="optionsRadios2" value="option2">
+				    <input type="radio" name="user_sex"  id="optionsRadios2" value="女">
 				    女
 				  </label>
 				  </div>
