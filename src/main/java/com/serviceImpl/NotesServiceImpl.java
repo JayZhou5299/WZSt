@@ -53,13 +53,14 @@ public class NotesServiceImpl implements NotesService {
 	}
 
 	public void addhot(int note_id) {
+		System.out.println(note_id);
 		Notes notes = notesDao.SearchNotesById(note_id);
 		notes.setNote_hot(notes.getNote_hot()+1);
-		
+		notesDao.updateNotes(notes);
 		int userid = notesDao.SearchUserIdByNoteID(note_id);
 		User user = userDao.getUserById(userid);
 		user.setUser_integ(user.getUser_integ()+1);
-		userDao.saveUser(user);
+		userDao.updateUser(user);
 	}
 
 

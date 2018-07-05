@@ -31,8 +31,7 @@ public class GoodsServiceImpl implements  GoodsService{
 	}
 
 	public List<Goods> SearchGoods(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return goodsDao.SearchGoods(name);
 	}
 
 	public List<Goods> interestedGoodsByUser(int userid) {

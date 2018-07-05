@@ -2,14 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@  taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	int newPage = 1;
-	session.setAttribute("newPage", newPage);
-%>
-<%
 	String path = request.getContextPath();
 	// 获得项目完全路径（假设你的项目叫MyApp，那么获得到的地址就是http://localhost:8080/MyApp/）: 
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+%>
+
+<%
+	int newPage = 1;
+	session.setAttribute("newPage", newPage);
 %>
 <!DOCTYPE html PUBLIC >
 <html>
@@ -220,122 +221,98 @@
 									<h3 class="side-section-title">种类</h3>
 								</header>
 								<div class="side-section-content">
-									<ul id="category-list" class="vmenu unstyled">
-
-										<input type="checkbox" id="check-men" class="prettyCheckable"
+									<ul id="parent" class="vmenu unstyled">
+										<li><input type="text" id="check-men" class="prettyCheckable"
 											data-label="护肤" data-labelPosition="right" value="护肤" />
 										<ul>
-											<li><input type="checkbox" id="check-men-accessories"
-												class="prettyCheckable" data-label="面膜"
-												data-labelPosition="right" value="面膜" /></li>
-											<li><input type="checkbox" id="check-men-jacket"
-												class="prettyCheckable" data-label="化妆水"
-												data-labelPosition="right" value="化妆水" /></li>
-											<li><input type="checkbox" id="check-men-jumper"
-												class="prettyCheckable" data-label="洁面"
-												data-labelPosition="right" value="洁面" /></li>
-											<li><input type="checkbox" id="check-men-jean"
-												class="prettyCheckable" data-label="精华"
-												data-labelPosition="right" value="精华" /></li>
-											<li><input type="checkbox" id="check-men-shoe"
-												class="prettyCheckable" data-label="乳液"
-												data-labelPosition="right" value="乳液" /></li>
-											<li><input type="checkbox" id="check-men-tshirt"
-												class="prettyCheckable" data-label="面霜"
-												data-labelPosition="right" value="面霜" /></li>
-											<li><input type="checkbox" id="check-men-blazers"
-												class="prettyCheckable" data-label="眼霜"
-												data-labelPosition="right" value="眼霜" /></li>
+											<li>面膜</li>
+											<li>化妆水</li>
+											<li>洁面</li>
+											<li>精华</li>
+											<li>乳液</li>
+											<li>面霜</li>
+											<li>眼霜</li>
 										</ul>
+										</li>
 
-
-										<li><input type="checkbox" id="check-women"
+										<li><input type="text" id="check-women"
 											class="prettyCheckable" data-label="彩妆"
 											data-labelPosition="right" value="彩妆" />
-											<ul>
-												<li><input type="checkbox" id="check-women-accessories"
-													class="prettyCheckable" data-label="卸妆"
-													data-labelPosition="right" value="卸妆" /></li>
-												<li><input type="checkbox" id="check-women-swimwear"
-													class="prettyCheckable" data-label="防晒"
-													data-labelPosition="right" value="防晒" /></li>
-												<li><input type="checkbox" id="check-women-basics"
-													class="prettyCheckable" data-label="bb霜"
-													data-labelPosition="right" value="bb霜" /></li>
-												<li><input type="checkbox" id="check-women-dresses"
-													class="prettyCheckable" data-label="粉饼"
-													data-labelPosition="right" value="粉饼" /></li>
-												<li><input type="checkbox" id="check-women-jeans"
-													class="prettyCheckable" data-label="眼影"
-													data-labelPosition="right" value="眼影" /></li>
-												<li><input type="checkbox" id="check-women-skirt"
-													class="prettyCheckable" data-label="睫毛膏"
-													data-labelPosition="right" value="睫毛膏" /></li>
-												<li><input type="checkbox" id="check-women-legging"
-													class="prettyCheckable" data-label="唇彩"
-													data-labelPosition="right" value="唇彩" /></li>
-											</ul></li>
+											<ul id="parent">
+												<li>卸妆</li>
+												<li>防晒</li>
+												<li>防晒霜</li>
+												<li>粉饼</li>
+												<li>眼影</li>
+												<li>睫毛膏</li>
+												<li>唇彩</li>
+											</ul>
+										</li>
 
 
-										<li><input type="checkbox" id="check-beauty"
+										<li><input type="text" id="check-beauty"
 											class="prettyCheckable" data-label="香氛"
 											data-labelPosition="right" value="香氛" />
-											<ul>
-												<li><input type="checkbox" id="check-women-accessories"
-													class="prettyCheckable" data-label="女士香水"
-													data-labelPosition="right" value="女士香水" /></li>
-												<li><input type="checkbox" id="check-women-swimwear"
-													class="prettyCheckable" data-label="男士香水"
-													data-labelPosition="right" value="男士香水" /></li>
-												<li><input type="checkbox" id="check-women-basics"
-													class="prettyCheckable" data-label="中性香水"
-													data-labelPosition="right" value="中性香水" /></li>
-											</ul></li>
-										<li><input type="checkbox" id="check-best"
+											<ul id="parent">
+												<li>女士香水</li>
+												<li>男士香水</li>
+												<li>中性香水</li>
+											</ul>
+										</li>
+										
+										<li><input type="text" id="check-best"
 											class="prettyCheckable" data-label="个人护理"
 											data-labelPosition="right" value="个人护理" />
-											<ul>
-												<li><input type="checkbox" id="check-women-accessories"
-													class="prettyCheckable" data-label="洗发"
-													data-labelPosition="right" value="洗发" /></li>
-												<li><input type="checkbox" id="check-women-swimwear"
-													class="prettyCheckable" data-label="护法"
-													data-labelPosition="right" value="护法" /></li>
-												<li><input type="checkbox" id="check-women-basics"
-													class="prettyCheckable" data-label="沐浴"
-													data-labelPosition="right" value="沐浴" /></li>
-												<li><input type="checkbox" id="check-women-basics"
-													class="prettyCheckable" data-label="发膜"
-													data-labelPosition="right" value="发膜" /></li>
-											</ul></li>
-										<li><input type="checkbox" id="check-new"
+											<ul id="parent">
+												<li>洗发</li>
+												<li>护发</li>
+												<li>沐浴</li>
+												<li>发膜</li>
+											</ul>
+										</li>
+										
+										<li><input type="text" id="check-new"
 											class="prettyCheckable" data-label="男士专区"
 											data-labelPosition="right" value="男士专区" />
-											<ul>
-												<li><input type="checkbox" id="check-women-accessories"
-													class="prettyCheckable" data-label="洁面"
-													data-labelPosition="right" value="洁面" /></li>
-												<li><input type="checkbox" id="check-women-swimwear"
-													class="prettyCheckable" data-label="爽肤水"
-													data-labelPosition="right" value="爽肤水" /></li>
-												<li><input type="checkbox" id="check-women-basics"
-													class="prettyCheckable" data-label="乳液"
-													data-labelPosition="right" value="乳液" /></li>
-												<li><input type="checkbox" id="check-women-basics"
-													class="prettyCheckable" data-label="面霜"
-													data-labelPosition="right" value="面霜" /></li>
-												<li><input type="checkbox" id="check-women-basics"
-													class="prettyCheckable" data-label="精华"
-													data-labelPosition="right" value="精华" /></li>
-												<li><input type="checkbox" id="check-women-basics"
-													class="prettyCheckable" data-label="洗发"
-													data-labelPosition="right" value="洗发" /></li>
-												<li><input type="checkbox" id="check-women-basics"
-													class="prettyCheckable" data-label="洗发"
-													data-labelPosition="right" value="洗发" /></li>
-											</ul></li>
+											<ul id="parent">
+												<li>洁面</li>
+												<li>爽肤水</li>
+												<li>乳液</li>
+												<li>隔离</li>
+												<li>精华</li>
+											</ul>
+										</li>
 									</ul>
 								</div>
+								
+								<script>
+									window.onload = function(){
+										var lis = document.getElementById("parent").getElementsByTagName("li");
+										
+										for(i=0;i<lis.length;i++){
+											lis[i].onclick = function(){
+												//alert(this.innerHTML);
+												var name=this.innerHTML;
+												$.ajax({
+		 											type : "POST",
+		 											url : "goods/listSome.do",
+		 											data : {"name":name},
+		 											dataType:"html",
+		 											success:function(msg){
+		 											//alert(msg);
+		 	 										document.getElementById("productAjax").innerHTML=msg;
+		 											},
+		 											error: function() {
+		 								               alert("失败，请稍后再试！");
+		 								            }
+		 										});	
+											}
+										}
+									}
+									    
+								
+								</script>
+								
 								<footer class="side-section-footer text-center hide">
 									<button type="button" id="btn-filter-cat"
 										class="btn btn-primary btn-round uppercase">清空选择</button>
@@ -420,19 +397,6 @@
 										</ul>
 										<!-- // DISPLAY MODE -->
 
-										<!-- NUMBER OF ITEMS TO BE DISPLAY -->
-										<div class="pull-right m-l-lg">
-											<span class="inline-middle m-r-sm text-xs">Show</span>
-											<div class="inline-middle styled-dd">
-												<select>
-													<option value="9">9</option>
-													<option value="12" selected>12</option>
-													<option value="24">24</option>
-													<option value="36">36</option>
-												</select>
-											</div>
-										</div>
-										<!-- // NUMBER OF ITEMS TO BE DISPLAY -->
 									</div>
 									<div class="space30 visible-xs"></div>
 									<!-- PAGINATION -->
@@ -546,27 +510,7 @@
 														<li><a href="#" class="circle add-to-cart"><i
 																class="iconfont-shopping-cart"></i></a></li>
 													</ul>
-													<div class="rate-bar">
-														<input type="range" value="4.5" step="0.5" id="backing1"
-															style="display: none;">
-														<div class="rateit" data-rateit-backingfld="#backing1"
-															data-rateit-starwidth="12" data-rateit-starheight="12"
-															data-rateit-resetable="false" data-rateit-ispreset="true"
-															data-rateit-min="0" data-rateit-max="5">
-															<button id="rateit-reset-2" class="rateit-reset"
-																aria-label="reset rating" aria-controls="rateit-range-2"
-																style="display: none;"></button>
-															<div id="rateit-range-2" class="rateit-range"
-																tabindex="0" role="slider" aria-label="rating"
-																aria-owns="rateit-reset-2" aria-valuemin="0"
-																aria-valuemax="5" aria-valuenow="4.5"
-																aria-readonly="false" style="width: 60px; height: 12px;">
-																<div class="rateit-selected rateit-preset"
-																	style="height: 12px; width: 54px;"></div>
-																<div class="rateit-hover" style="height: 12px"></div>
-															</div>
-														</div>
-													</div>
+													
 												</div>
 											</div>
 											<div class="entry-main">
@@ -577,8 +521,7 @@
 													<p>${goods_unit }</p>
 												</div>
 												<div class="entry-price">
-													<strong> class="accent-color
-														price">${pro.goods_price}元</strong> <a href="#"
+													<strong>${pro.goods_price}元</strong> <a href="#"
 														class="btn btn-round btn-default add-to-cart visible-list">Add
 														to Cart</a>
 												</div>

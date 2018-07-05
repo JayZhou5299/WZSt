@@ -8,10 +8,6 @@
 			+ path + "/";
 %>
 <html class="noIE" lang="en-US">
-<!--[if IE 7 ]><html class="ie ie7 lte9 lte8 lte7" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="en-US">	<![endif]-->
-<!--[if IE 9]><html class="ie ie9 lte9" lang="en-US"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
 <html class="noIE" lang="en-US">
 <!--<![endif]-->
 <head>
@@ -38,15 +34,6 @@
 
 <!-- GENERAL CSS FILES -->
 <link rel="stylesheet" href="css/minified.css">
-<!-- // GENERAL CSS FILES -->
-
-<!--[if IE 8]>
-		<script src="js/respond.min.js"></script>
-		<script src="js/selectivizr-min.js"></script>
-	<![endif]-->
-<!--
-	<script src="js/jquery.min.js"></script>
-	-->
 <script>
 	window.jQuery
 			|| document.write('<script src="js/jquery.min.js"><\/script>');
@@ -248,7 +235,7 @@
 
 						<div class="flex-caption herotext text-bold gfc animated"
 							data-animation="fadeInRightBig" data-x="590" data-y="140"
-							data-speed="900" data-start="2000">购物即送积分</div>
+							data-speed="900" data-start="2000">点赞即送积分</div>
 
 						<div class="flex-caption h6 text-bold gfc text-center animated"
 							data-animation="fadeInDown" data-x="760" data-y="260"
@@ -539,13 +526,6 @@
 											<li><a href="#" class="circle add-to-cart"><i
 													class="iconfont-shopping-cart"></i></a></li>
 										</ul>
-										<div class="rate-bar">
-											<input type="range" value="4.5" step="0.5" id="backing1" />
-											<div class="rateit" data-rateit-backingfld="#backing1"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -575,13 +555,6 @@
 											<li><a href="#" class="circle add-to-cart"><i
 													class="iconfont-shopping-cart"></i></a></li>
 										</ul>
-										<div class="rate-bar">
-											<input type="range" value="4" step="0.5" id="backing2" />
-											<div class="rateit" data-rateit-backingfld="#backing2"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -613,13 +586,6 @@
 											<li><a href="#" class="circle add-to-cart"><i
 													class="iconfont-shopping-cart"></i></a></li>
 										</ul>
-										<div class="rate-bar">
-											<input type="range" value="3.5" step="0.5" id="backing3" />
-											<div class="rateit" data-rateit-backingfld="#backing3"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -648,13 +614,6 @@
 											<li><a href="#" class="circle add-to-cart"><i
 													class="iconfont-shopping-cart"></i></a></li>
 										</ul>
-										<div class="rate-bar">
-											<input type="range" value="5" step="0.5" id="backing4" />
-											<div class="rateit" data-rateit-backingfld="#backing4"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -686,13 +645,6 @@
 											<li><a href="#" class="circle add-to-cart"><i
 													class="iconfont-shopping-cart"></i></a></li>
 										</ul>
-										<div class="rate-bar">
-											<input type="range" value="4.5" step="0.5" id="backing5" />
-											<div class="rateit" data-rateit-backingfld="#backing5"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -722,13 +674,6 @@
 											<li><a href="#" class="circle add-to-cart"><i
 													class="iconfont-shopping-cart"></i></a></li>
 										</ul>
-										<div class="rate-bar">
-											<input type="range" value="4" step="0.5" id="backing6" />
-											<div class="rateit" data-rateit-backingfld="#backing6"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -760,13 +705,6 @@
 											<li><a href="#" class="circle add-to-cart"><i
 													class="iconfont-shopping-cart"></i></a></li>
 										</ul>
-										<div class="rate-bar">
-											<input type="range" value="3.5" step="0.5" id="backing7" />
-											<div class="rateit" data-rateit-backingfld="#backing7"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -795,13 +733,6 @@
 											<li><a href="#" class="circle add-to-cart"><i
 													class="iconfont-shopping-cart"></i></a></li>
 										</ul>
-										<div class="rate-bar">
-											<input type="range" value="5" step="0.5" id="backing8" />
-											<div class="rateit" data-rateit-backingfld="#backing8"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -876,13 +807,6 @@
 										class="lazyOwl thumb" />
 									<div class="hover">
 										<a href="product.jsp" class="entry-url"></a>
-										<div class="rate-bar">
-											<input type="range" value="4" step="0.5" id="backing10" />
-											<div class="rateit" data-rateit-backingfld="#backing10"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -902,13 +826,6 @@
 									<div class="hover">
 										<a href="product.jsp" class="entry-url"></a>
 
-										<div class="rate-bar">
-											<input type="range" value="3.5" step="0.5" id="backing11" />
-											<div class="rateit" data-rateit-backingfld="#backing11"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -927,13 +844,6 @@
 										class="lazyOwl thumb" />
 									<div class="hover">
 										<a href="product.jsp" class="entry-url"></a>
-										<div class="rate-bar">
-											<input type="range" value="5" step="0.5" id="backing12" />
-											<div class="rateit" data-rateit-backingfld="#backing12"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -952,13 +862,6 @@
 										class="lazyOwl thumb" />
 									<div class="hover">
 										<a href="product.jsp" class="entry-url"></a>
-										<div class="rate-bar">
-											<input type="range" value="4.5" step="0.5" id="backing13" />
-											<div class="rateit" data-rateit-backingfld="#backing13"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -978,13 +881,6 @@
 									<div class="hover">
 										<a href="product.jsp" class="entry-url"></a>
 
-										<div class="rate-bar">
-											<input type="range" value="4" step="0.5" id="backing14" />
-											<div class="rateit" data-rateit-backingfld="#backing14"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -1003,13 +899,6 @@
 										class="lazyOwl thumb" />
 									<div class="hover">
 										<a href="product.jsp" class="entry-url"></a>
-										<div class="rate-bar">
-											<input type="range" value="3.5" step="0.5" id="backing15" />
-											<div class="rateit" data-rateit-backingfld="#backing15"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">
@@ -1028,13 +917,6 @@
 										class="lazyOwl thumb" />
 									<div class="hover">
 										<a href="product.jsp" class="entry-url"></a>
-										<div class="rate-bar">
-											<input type="range" value="5" step="0.5" id="backing16" />
-											<div class="rateit" data-rateit-backingfld="#backing16"
-												data-rateit-starwidth="12" data-rateit-starheight="12"
-												data-rateit-resetable="false" data-rateit-ispreset="true"
-												data-rateit-min="0" data-rateit-max="5"></div>
-										</div>
 									</div>
 								</div>
 								<div class="entry-main">

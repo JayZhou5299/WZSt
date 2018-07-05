@@ -15,7 +15,7 @@
 		</delete>
 		
           <select id="SearchGoods" parameterType="String" resultType="com.model.Goods">
-            select * from goods where Goods_Name = #{name}
+            select * from goods where Goods_Class = #{goods_class}
            </select>
 
             <select id="SearchGoodsByclass" parameterType="int" resultType="com.model.Goods">

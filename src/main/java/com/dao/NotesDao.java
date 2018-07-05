@@ -26,4 +26,6 @@ public interface NotesDao {
 	
 	public Notes SearchNotesById(int note_id);
 	
+	public void updateNotes(Notes notes);
+	
 }

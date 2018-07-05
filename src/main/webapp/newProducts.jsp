@@ -42,26 +42,7 @@
 							<li><a href="#" class="circle add-to-cart"><i
 									class="iconfont-shopping-cart"></i></a></li>
 						</ul>
-						<div class="rate-bar">
-							<input type="range" value="4.5" step="0.5" id="backing1"
-								style="display: none;">
-							<div class="rateit" data-rateit-backingfld="#backing1"
-								data-rateit-starwidth="12" data-rateit-starheight="12"
-								data-rateit-resetable="false" data-rateit-ispreset="true"
-								data-rateit-min="0" data-rateit-max="5">
-								<button id="rateit-reset-2" class="rateit-reset"
-									aria-label="reset rating" aria-controls="rateit-range-2"
-									style="display: none;"></button>
-								<div id="rateit-range-2" class="rateit-range" tabindex="0"
-									role="slider" aria-label="rating" aria-owns="rateit-reset-2"
-									aria-valuemin="0" aria-valuemax="5" aria-valuenow="4.5"
-									aria-readonly="false" style="width: 60px; height: 12px;">
-									<div class="rateit-selected rateit-preset"
-										style="height: 12px; width: 54px;"></div>
-									<div class="rateit-hover" style="height: 12px"></div>
-								</div>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 				<div class="entry-main">
@@ -72,7 +53,7 @@
 						<p>${goods_unit }</p>
 					</div>
 					<div class="entry-price">
-						<s class="entry-discount">1000.00元</s> <strong
+						 <strong
 							class="accent-color price">${pro.goods_price}元</strong> <a href="#"
 							class="btn btn-round btn-default add-to-cart visible-list">Add
 							to Cart</a>
