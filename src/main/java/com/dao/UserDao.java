@@ -15,10 +15,15 @@ public interface UserDao {
 	// 根据email地址来查找相应的用户（用于修改用户的基本信息）
 	public User getUserByemail(String email);
 
+
 	// 将一个用户的信息更新到数据库中
 	public void updateUser(User user);
 
 	// public List<User> listuser();
+	
+	public List<String> listallEmail();
+	
+	public User getUserById(int user_id);
 
 	
 }

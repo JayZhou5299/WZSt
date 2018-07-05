@@ -118,7 +118,7 @@
 													class="pull-right total">$ 0</span>
 											</div>
 											<div class="text-right">
-												<a href="cart.jsp"
+												<a href="cart/listUserCart.do"
 													class="btn btn-default btn-round view-cart">查看购物车</a>
 											</div>
 										</div>
@@ -153,7 +153,7 @@
 								<c:if test="${empty User}">
 									<ul class="user-menu">
 										<li><a href="login.jsp">登录</a></li>
-										<li><a href="register.jsp">注册</a></li>
+										<li><a href="user/ListEmail.do">注册</a></li>
 									</ul>
 								</c:if>
 							</nav>
@@ -175,8 +175,8 @@
 								<li><a href="goods/SearchgoodsByclass.do">主页</a></li>
 								<li><a href="notes/listnotes.do">笔 记</a></li>
 								<li><a href="goods/listproducts.do">商 城</a></li>
-								<li><a href="userInfo.jsp">我 的</a></li>
-
+								<li><a href="notes/addhot.do">我 的</a></li>
+								<li><a href="notes/delete.do">TEST</a></li>
 							</ul>
 							
 							<!-- MOBILE MENU -->

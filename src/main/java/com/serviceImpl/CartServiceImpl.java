@@ -19,7 +19,7 @@ public class CartServiceImpl implements CartService {
 
 	public List<Cart> listcart(int user_id) {
 
-		return null;
+		return cartDao.getcartByuserid(user_id);
 	}
 
 	public void deleteCart(int cart_id) {
@@ -51,7 +51,5 @@ public class CartServiceImpl implements CartService {
 		cart.setUser_id(userid);
 		cart.setGoods_price(price);
 		cartDao.saveCart(cart);
-
 	}
-
 }

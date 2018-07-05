@@ -14,9 +14,8 @@
 		(#{note_pic},#{note_des},#{user_id},#{note_hot},#{note_name});
 	</insert>
 
-	<delete id="deleteByNoteId" parameterType="com.model.Notes">
-		delete from notes
-		where Note_Id=#{note_id};
+	<delete id="deleteByNoteId" parameterType="int">
+		delete from notes where Note_Id=#{note_id};
 	</delete>
 
 	<select id="SearchNotes" parameterType="String" resultType="com.model.Notes">
@@ -37,10 +36,13 @@
 		select * from notes where User_Id = #{user_id}
 	</select>
 	
-	
-	
 	<select id="SearchUserIdByNoteID"  parameterType="int"  resultType="int">
-		select * from notes where User_Id = #{user_id}
+		select User_Id from notes where Note_Id = #{note_id}
 	</select>
+	
+	<select id="SearchNotesById"  parameterType="int"  resultType="com.model.Notes">
+		select * from notes where Note_Id = #{note_id}
+	</select>
+	
 
 </mapper>

@@ -19,10 +19,20 @@
 	</select>
 
 	<update id="updateUser" parameterType="com.model.User">
-		update user set User_Pwd = #{user_pwd} , User_Tel = #{user_tel} where
+		update user set User_Pwd =
+		#{user_pwd} , User_Tel = #{user_tel} where
 		User_Email = #{user_email}
 	</update>
 
+	
+	<select id="listallEmail" resultType="String">
+		select User_Email from user
+	</select>
+	
+	
+	<select id="getUserById" parameterType="int"  resultType="com.model.User">
+		select * from user where User_Id = #{user_id}
+	</select>
 
 	<!-- <select id="listuser" resultType="com.model.User"> -->
 	<!-- select * from user -->

@@ -1,5 +1,7 @@
 package com.serviceImpl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -61,6 +63,10 @@ public class UserServiceImpl implements UserService {
 		} else {
 			return true;
 		}
+	}
+
+	public List<String> listEmail() {
+		return userDao.listallEmail();
 	}
 	
 	

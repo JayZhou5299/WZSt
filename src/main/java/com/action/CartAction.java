@@ -1,5 +1,7 @@
 package com.action;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -27,5 +29,17 @@ public class CartAction {
 		ModelAndView mav = new ModelAndView("checkout");
 		return mav;
 	}
+	
+	@RequestMapping("listUserCart.do")
+	public ModelAndView listUserCart(HttpSession session){
+		User user = (User) session.getAttribute("User");
+		List<Cart> list = cartServiceImpl.listcart(1005);
+		ModelAndView mav = new ModelAndView("checkout");
+		System.out.println(list.get(0).getGoods_name());
+		mav.addObject("listCart",list);
+		return mav;
+	}
+	
+	
 	
 }

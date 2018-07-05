@@ -1,6 +1,4 @@
 package com.action;
-import com.model.CosAddress;
-import com.model.Notes;
 import com.model.User;
 import com.serviceImpl.CosAddressServiceImpl;
 import com.serviceImpl.NotesServiceImpl;
@@ -38,10 +36,13 @@ public class UserAction {
 	@RequestMapping("registe.do")
 	public ModelAndView register(User user){
 		System.out.println(user.getUser_name());
+		System.out.println(user.getUser_pwd()+"abcabc");
 		userServiceImpl.saveUser(user);
 		ModelAndView mav = new ModelAndView("checkout");
 		return mav;
 	}
+	
+	
 	
 	@RequestMapping("yanzhengma.do")
 	@ResponseBody
@@ -53,12 +54,6 @@ public class UserAction {
 		System.out.println("手机验证码为:"+registerCode);
 		return registerCode;	
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -80,6 +75,7 @@ public class UserAction {
 			session.setAttribute("User", user);
 //			System.out.println(user.getUser_id());
 			mav = new ModelAndView("index",data);
+			
 			
 		}
 		else{
@@ -139,8 +135,10 @@ public class UserAction {
 	@RequestMapping("ListEmail.do")
 	public ModelAndView listEmail(){
 		
-		
-		ModelAndView mav = new ModelAndView("index");
+		ModelAndView mav = new ModelAndView("register");
+		List<String> list = userServiceImpl.listEmail();
+		System.out.println(list.get(1));
+		mav.addObject("EmailList",list);
 		return mav;
 	}
 	

@@ -161,7 +161,7 @@
 				</div>
 				<div style="margin-bottom: 10px">
 					<span>确认密码:</span> <input type="password" style="width: 60%"
-						name="user_pwd" id="pwd1" onkeyup="validate()">&nbsp;&nbsp;<span
+						 id="pwd1" onkeyup="validate()">&nbsp;&nbsp;<span
 						id="tishi"></span>
 				</div>
 				<div style="margin-bottom: 10px">

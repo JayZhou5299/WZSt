@@ -1,6 +1,8 @@
 package com.service;
 
 
+import java.util.List;
+
 import com.model.User;
 
 public interface UserService {
@@ -23,6 +25,6 @@ public interface UserService {
 	public boolean UserIsExist(String email);
 
 	// // 根据email地址来判断是否存在该邮箱的用户，避免重名
-	// public List<User> listuser();
+	 public List<String> listEmail();
 
 }

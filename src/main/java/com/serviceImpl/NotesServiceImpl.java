@@ -7,8 +7,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.dao.NotesDao;
+import com.dao.UserDao;
 import com.model.Notes;
-
+import com.model.User;
 import com.service.NotesService;
 
 @Service
@@ -16,9 +17,12 @@ public class NotesServiceImpl implements NotesService {
 
 	@Resource
 	NotesDao notesDao;
+	
+	@Resource
+	UserDao userDao;
 
-	public void deleteNotes(int notes_id) {
-
+	public void deleteNotes(int note_id) {
+		notesDao.deleteByNoteId(note_id);
 	}
 
 	public void saveNotes(Notes notes) {
@@ -49,12 +53,14 @@ public class NotesServiceImpl implements NotesService {
 	}
 
 	public void addhot(int note_id) {
-		// TODO Auto-generated method stub
+		Notes notes = notesDao.SearchNotesById(note_id);
+		notes.setNote_hot(notes.getNote_hot()+1);
 		
+		int userid = notesDao.SearchUserIdByNoteID(note_id);
+		User user = userDao.getUserById(userid);
+		user.setUser_integ(user.getUser_integ()+1);
+		userDao.saveUser(user);
 	}
 
-	
-	
-	
 
 }

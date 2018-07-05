@@ -125,7 +125,9 @@ public class NotesAction {
 	// 删除笔记
 	@RequestMapping("delete.do")
 	public ModelAndView delete() {
-		ModelAndView mav = new ModelAndView();
+		int note_id = 3004;
+		notesServiceImpl.deleteNotes(note_id);
+		ModelAndView mav = new ModelAndView("需要跳转的页面");
 		return mav;
 	}
 	
@@ -142,18 +144,11 @@ public class NotesAction {
 	
 	
 	@RequestMapping("addhot.do")
-	public ModelAndView addhot(int note_id){
-		
-		
-		notesServiceImpl.SearchNotesByUser(note_id);
-		
-		ModelAndView mav = new ModelAndView("userInfo");
+	public ModelAndView addhot(){
+		int note_id = 3043;
+		notesServiceImpl.addhot(note_id);
+		ModelAndView mav = new ModelAndView("跳转的页面");
 		return mav;
 	}
 	
-	
-	
-	
-	
-
 }
