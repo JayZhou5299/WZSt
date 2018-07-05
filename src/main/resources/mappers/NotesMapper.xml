@@ -36,6 +36,11 @@
 	<select id="listnotesbyuserid"  parameterType="int"  resultType="com.model.Notes">
 		select * from notes where User_Id = #{user_id}
 	</select>
-
+	
+	
+	
+	<select id="SearchUserIdByNoteID"  parameterType="int"  resultType="int">
+		select * from notes where User_Id = #{user_id}
+	</select>
 
 </mapper>

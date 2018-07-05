@@ -5,15 +5,18 @@ import com.model.User;
 import com.serviceImpl.CosAddressServiceImpl;
 import com.serviceImpl.NotesServiceImpl;
 import com.serviceImpl.UserServiceImpl;
+import com.util.GetMessage;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -40,6 +43,30 @@ public class UserAction {
 		return mav;
 	}
 	
+	@RequestMapping("yanzhengma.do")
+	@ResponseBody
+	public String getRegister(HttpServletRequest request){
+		String tel=request.getParameter("tel");
+		System.out.println("tel:"+tel);
+		GetMessage getMessage=new GetMessage();
+		String registerCode="123456";//getMessage.getResult(tel);
+		System.out.println("手机验证码为:"+registerCode);
+		return registerCode;	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//用户登录
 	@RequestMapping("login.do")
 	public ModelAndView login(String email,String password,HttpSession session){
@@ -60,13 +87,12 @@ public class UserAction {
 		}
 		
 //		System.out.println(user.getUser_id());
-		List<Notes> list = notesServiceImpl.SearchNotesByUser(user.getUser_id());
+//		List<Notes> list = notesServiceImpl.SearchNotesByUser(user.getUser_id());
 
 //		for(int i=0;i<list.size();i++){
 //			System.out.println(list.get(i).getNote_des()+"  usermy");
 //		}
 //		System.out.println(list.toString());
-	
 //		session.setAttribute("userNotesList",list);
 //		CosAddress defaultAdd = cosAddressServiceImpl.Listdefaultaddress(user.getUser_id());
 //		System.out.println("我的地址："+defaultAdd.getRecv_province()+" "+defaultAdd.getRecv_city()+" "+defaultAdd.getRecv_area()+" "+defaultAdd.getRecv_addr()+" "+defaultAdd.getRecv_person()+"收 \n电话:"+defaultAdd.getRecv_tel());
@@ -107,5 +133,24 @@ public class UserAction {
 		ModelAndView mav = new ModelAndView("index"); 
 		return mav;
 	}
+	
+	
+	//用户退出
+	@RequestMapping("ListEmail.do")
+	public ModelAndView listEmail(){
+		
+		
+		ModelAndView mav = new ModelAndView("index");
+		return mav;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

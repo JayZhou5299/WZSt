@@ -8,7 +8,7 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC>
 <html>
 <head>
 <base href=" <%=basePath%>">
@@ -131,7 +131,7 @@
 		<div
 			style=" text-align:left;width: 700px; height: 500px; margin-left: auto; margin-right: auto; margin-top: 100px">
 			<h3 style="text-align: left">个人信息</h3>
-			<form action="user/registe.do" method="post">
+			<form action="user/registe.do" method="post" name="f1">
 		  <div style="margin-bottom:10px">
 			<span style="margin-right:14px">用户名:</span>
 			<input type="text" style="width:60%" name="user_name"> 
@@ -140,7 +140,7 @@
 		  	<div style="margin-bottom:10px">
 		  	<span style="margin-right:14px">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</span>
 					<label>
-				    <input type="radio" name="user_sex"  id="optionsRadios2" value="男">
+				    <input type="radio" name="user_sex"  id="optionsRadios1" value="男">
 				    男
 				  </label>
 				  &nbsp;&nbsp;&nbsp;&nbsp;
@@ -150,73 +150,170 @@
 				  </label>
 				  </div>
 		  	<br>	  	
-		  <div style="margin-bottom:10px">
-			<span style="margin-right:10px">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</span>
-			<input type="password" style="width:60%" name="user_pwd" id="pwd" onkeyup="validate()"> 
-		  </div><br>
-		  <div style="margin-bottom:10px">
-			<span>确认密码:</span>
-			<input type="password" style="width:60%"  id="pwd1" 
-			onkeyup="validate()">&nbsp;&nbsp;<span id="tishi"></span> 
-		  </div><br>
-		  <div style="margin-bottom:10px">
-			<span>联系电话:</span>
-			<input type="text" style="width:60%" name="user_tel"> 
-		  </div><br>
-		  <div style="margin-bottom:10px">
-			<span>电子邮箱:</span>
-			<input type="text" style="width:60%" name="user_email"> 
-		  </div>
-		  <br>
-		  <input type="submit" value="注册" class="btn btn-primary uppercase">
+		 
+		  <br/>
+		  
+		        <div style="margin-bottom: 10px">
+					<span style="margin-right: 10px">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</span>
+					<input type="password" placeholder="密码8到16位，数字与字母组合"
+						style="width: 60%" name="user_pwd" id="pwd" onkeyup="check_password()">
+					<span id="tishi_pw"></span>
+				</div>
+				<div style="margin-bottom: 10px">
+					<span>确认密码:</span> <input type="password" style="width: 60%"
+						name="user_pwd" id="pwd1" onkeyup="validate()">&nbsp;&nbsp;<span
+						id="tishi"></span>
+				</div>
+				<div style="margin-bottom: 10px">
+					<span>联系电话:</span> <input type="text" style="width: 60%"
+						name="user_tel" id="tel" onkeyup="check_tel()"> <span
+						id="tishi_tel"></span>
+				</div>
+				<div style="margin-bottom: 10px">
+					<span>电子邮箱:</span> <input type="text" style="width: 60%"
+						name="user_email" onkeyup="check_email()" id="email"> <span
+						id="tishi_email"></span>
+				</div>
+				<div style="margin-bottom:10px">
+			 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 		<input onkeyup="checkCode()" type="text" id="registerCode" name="email" placeholder="填写验证码"/><span id="tishi_code"></span> 
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="获取验证码"  onclick="getPhone()">
+				</div>	
+		
+		<br/>
+		  <input type="submit" value="注册" class="btn btn-primary uppercase" disabled="disabled">
 	    </form>
+	    
+<!-- 	    <button  onclick="getPhone()">获取验证码</button> -->
 		</div>
-<!-- 		判断密码 -->
-      <script>
-      function validate(){
-    	  var pwd = $("#pwd").val();
-    	  var pwd1 = $("#pwd1").val();
-//   	  对比两次输入的密码
-        if(pwd == pwd1){
-        	$("#tishi").html("两次密码都相同");
-        	$("#tishi").css("color","green");
-        	$("#xiugai").removeAttr("disabled");
-        }
-        else{
-        	$("#tishi").html("两次密码不相同");
-        	$("#tishi").css("color","red");
-        	$("#button").attr("disabled","disabled");
-        }
-      }
+
+	    <script>
+	        var getCode="";
+	        
+			function getPhone(){
+				var tel=document.getElementById("tel").value;
+				//alert(tel);
+				$.ajax({
+					url:"user/yanzhengma.do",
+					type:"post",
+					async:false,
+					data:{"tel":tel},
+					dataType:"text",
+					success:function (data) {
+						getCode=data;
+						//alert(data);
+					}, 
+	                error:function(){
+	                	alert("wrong!");
+	                },
+				});
+			}
+			
+			function checkCode(){
+				var code = document.getElementById("registerCode").value;
+				//var getCode=getPhone();
+				//alert(getCode);
+				if((getCode == code)&&(code!="")){
+		          	$("#tishi_code").html("验证码正确");
+		          	$("#tishi_code").css("color","green");	
+		        	$(".btn").attr("disabled",false); 
+		        }
+		        else {
+		        	  $("#tishi_code").html("验证码错误请重新输入");
+		              $("#tishi_code").css("color","red");  
+		        	  $(".btn").attr("disabled",true); 
+		        }
+			}
+		
+
+
+     
+			
+			 
+		      function validate(){
+		    	  var pwd = $("#pwd").val();
+		    	  var pwd1 = $("#pwd1").val();
+		        
+//		   	  瀵规瘮涓ゆ杈撳叆鐨勫瘑鐮?
+		        if(pwd == pwd1){
+		        	$("#tishi").html("两次密码都相同");
+		        	$("#tishi").css("color","green");
+		        }
+		        else {
+		        	$("#tishi").html("两次密码不相同");
+		        	$("#tishi").css("color","red");
+		        }
+		      }
+		      
+		      function check_email() {
+		          var zhi = document.getElementById("email").value;
+		      var reg =/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+		          var re = new RegExp(reg);
+		          if (re.test(zhi)) {
+		        	  $("#tishi_email").html("邮箱格式正确");
+		            	$("#tishi_email").css("color","green");
+		              return true;
+		          }
+		          else {
+		        		$("#tishi_email").html("邮箱格式错误");
+		              	$("#tishi_email").css("color","red");
+		              return false;
+		          }
+		      }
+		      
+		      function check_tel() {
+		          var zhi = document.getElementById("tel").value;
+		           var reg = "^1[3|4|5|8][0-9]\\d{8}$"
+		          var re = new RegExp(reg);
+		          if (re.test(zhi)) {
+		        	  $("#tishi_tel").html("电话格式正确");
+		              $("#tishi_tel").css("color","green");
+		            	
+		              return true;
+		          }
+		          else {
+		        		$("#tishi_tel").html("电话格式错误");
+		              	$("#tishi_tel").css("color","red");
+		              	
+		              return false;
+		          }
+		      }
+		      
+		      function check_password(){
+		      var pwdReg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/;//8鍒?6浣嶆暟瀛椾笌瀛楁瘝缁勫悎
+		  
+		          var value = $('#pwd').val();
+		          if(!pwdReg.test(value)){
+		        	  $("#tishi_pw").html("密码不符合要求");
+		          	  $("#tishi_pw").css("color","red");
+		          }else{
+		        	  $("#tishi_pw").html("密码符合要求");        	  
+		              $("#tishi_pw").css("color","green");
+		          }
+		      }					
       </script>
-      
-      
-      <div class="footer-sub">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-12 col-sm-6">
-							<div class="footer-links center-xs clearfix">
-								
-							</div>
-							<div class="space10"></div>
-							<div class="copyright center-xs">
-								<p>
-									© 2013 More Templates <a href="http://www.cssmoban.com/"
-										target="_blank" title="模板之家">微状科技</a> - Collect from <a
-										href="http://www.cssmoban.com/" title="网页模板" target="_blank">微状科技有限公司</a>.
-									All Rights Reserved.
-								</p>
-							</div>
+		
+	
+		<div class="footer-sub">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<div class="footer-links center-xs clearfix">
+							
 						</div>
-
-						<div class="space40 visible-xs"></div>
-
-						<div class="col-xs-12 col-sm-6 center-xs">
-							<div class="pull-right"></div>
+						<div class="space10"></div>
+						<div class="copyright center-xs">
+							<p>© 2018 More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">weizhaung </a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">weizhaung</a>. All Rights Reserved.</p>
 						</div>
 					</div>
-				</div>
+					
+
 			</div>
+		</div>
+		
+
+
+
 
 
 </body>

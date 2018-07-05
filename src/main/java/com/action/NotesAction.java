@@ -144,8 +144,8 @@ public class NotesAction {
 	@RequestMapping("addhot.do")
 	public ModelAndView addhot(int note_id){
 		
-//		User user = (User) session.getAttribute("User");
-//		notesServiceImpl.SearchNotesByUser(user.getUser_id());
+		
+		notesServiceImpl.SearchNotesByUser(note_id);
 		
 		ModelAndView mav = new ModelAndView("userInfo");
 		return mav;
