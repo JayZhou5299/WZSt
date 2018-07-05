@@ -35,11 +35,6 @@ public class GoodsServiceImpl implements  GoodsService{
 		return null;
 	}
 
-	public List<Goods> SearchGoodsByclass(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public List<Goods> interestedGoodsByUser(int userid) {
 		// TODO Auto-generated method stub
 		return null;
@@ -52,6 +47,13 @@ public class GoodsServiceImpl implements  GoodsService{
 
 	public List<Goods> ListallGoods() {
 		return goodsDao.ListallGoods();
+	}
+
+	public List<Goods> SearchGoodsByclass(int smal_class) {
+		System.out.println(smal_class);
+		List<Goods> list = goodsDao.SearchGoodsByclass(smal_class);
+		System.out.println(list.get(0).getGoods_detail()+" 123123123");
+		return list;
 	}
 
 }

@@ -5,7 +5,6 @@ import java.sql.Date;
 public class Goods {
 	private int goods_id;
 	private String goods_name;
-	private int big_class;
 	private int smal_class;
 	private String goods_class;
 	private String goods_pic;
@@ -25,13 +24,6 @@ public class Goods {
 		this.goods_name = goods_name;
 	}
 
-	public int getBig_class() {
-		return big_class;
-	}
-
-	public void setBig_class(int big_class) {
-		this.big_class = big_class;
-	}
 
 	public int getSmal_class() {
 		return smal_class;

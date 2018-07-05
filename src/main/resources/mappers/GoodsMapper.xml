@@ -18,7 +18,7 @@
             select * from goods where Goods_Name = #{name}
            </select>
 
-            <select id="SearchGoodsByclass" parameterType="String" resultType="com.model.Goods">
+            <select id="SearchGoodsByclass" parameterType="int" resultType="com.model.Goods">
            		select * from goods where Smal_Class = #{smal_class}
            </select>
            

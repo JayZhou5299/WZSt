@@ -10,19 +10,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.model.BigClass;
+import com.model.SmallClass;
 import com.serviceImpl.BigClassServiceImpl;
+import com.serviceImpl.SmallClassServiceImpl;
 
-@RequestMapping("/bigclass")
+@RequestMapping("/smallclass")
 @Controller
-public class BigClassAction {
+public class SmallClassAction {
 
 	@Resource
-	BigClassServiceImpl bigclassserviceImpl;
+	SmallClassServiceImpl smallClassServiceImpl;
 
 	@RequestMapping("list.do")
-	public ModelAndView list(HttpSession session){
-		List<BigClass> list = bigclassserviceImpl.ListBigclass();
-		session.setAttribute("bigclassList",list);
+	public ModelAndView list(HttpSession session,int bigclass_id){
+		
+		List<SmallClass> list = smallClassServiceImpl.listsmallclassByBclass(bigclass_id);
+		
+		session.setAttribute("smallclassList",list);
 		ModelAndView mav = new ModelAndView("跳转的页面");
 		return mav;
 	}

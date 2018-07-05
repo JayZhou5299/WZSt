@@ -172,7 +172,7 @@
 						<!-- SITE NAVIGATION MENU -->
 						<nav id="site-menu" role="navigation">
 							<ul class="main-menu hidden-sm hidden-xs">
-								<li><a href="index.jsp">主页</a></li>
+								<li><a href="goods/SearchgoodsByclass.do">主页</a></li>
 								<li><a href="notes/listnotes.do">笔 记</a></li>
 								<li><a href="goods/listproducts.do">商 城</a></li>
 								<li><a href="userInfo.jsp">我 的</a></li>

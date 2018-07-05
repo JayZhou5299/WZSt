@@ -65,4 +65,19 @@ public class GoodsAction {
 		return mav;
 	}
 	
+	
+	@RequestMapping("/SearchgoodsByclass.do")
+	public ModelAndView SearchgoodsByclass() {
+		System.out.println("enter");
+		List<Goods> list = goodsServiceImpl.SearchGoodsByclass(9014);
+		ModelAndView mav = new ModelAndView("跳转的页面"); 
+		mav.addObject("SearchgoodsList", list);
+		System.out.println(list);
+		return mav;
+	}
+	
+	
+	
+	
+	
 }

@@ -67,10 +67,10 @@ public class UserAction {
 //		}
 //		System.out.println(list.toString());
 	
-		session.setAttribute("userNotesList",list);
-		CosAddress defaultAdd = cosAddressServiceImpl.Listdefaultaddress(user.getUser_id());
+//		session.setAttribute("userNotesList",list);
+//		CosAddress defaultAdd = cosAddressServiceImpl.Listdefaultaddress(user.getUser_id());
 //		System.out.println("我的地址："+defaultAdd.getRecv_province()+" "+defaultAdd.getRecv_city()+" "+defaultAdd.getRecv_area()+" "+defaultAdd.getRecv_addr()+" "+defaultAdd.getRecv_person()+"收 \n电话:"+defaultAdd.getRecv_tel());
-		session.setAttribute("Defaultaddress",defaultAdd.getRecv_province()+" "+defaultAdd.getRecv_city()+" "+defaultAdd.getRecv_area()+" "+defaultAdd.getRecv_addr()+" "+defaultAdd.getRecv_person()+"收 \n电话:"+defaultAdd.getRecv_tel());
+//		session.setAttribute("Defaultaddress",defaultAdd.getRecv_province()+" "+defaultAdd.getRecv_city()+" "+defaultAdd.getRecv_area()+" "+defaultAdd.getRecv_addr()+" "+defaultAdd.getRecv_person()+"收 \n电话:"+defaultAdd.getRecv_tel());
 		return mav;
 	}
 	
@@ -107,6 +107,5 @@ public class UserAction {
 		ModelAndView mav = new ModelAndView("index"); 
 		return mav;
 	}
-	
-	
+
 }

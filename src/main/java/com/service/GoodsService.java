@@ -23,7 +23,7 @@ public interface GoodsService {
 	public List<Goods> SearchGoods(String name);
 
 	// 根据用户选择的类别查找商品相关类的商品（支持分类查询商品）
-	public List<Goods> SearchGoodsByclass(String name);
+	public List<Goods> SearchGoodsByclass(int smal_class);
 
 	// 根据用户的购买记录推荐相关感兴趣的商品
 	public List<Goods> interestedGoodsByUser(int userid);
