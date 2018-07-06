@@ -102,28 +102,28 @@
  </header>
 			<div style="text-align:center;width:100%;">
 				<br><br><br><br><h1>管  理  员  登  录</h1><br><br>
-				<form action="user/login.do">
+				<form action="manager/login.do">
 					<div style="margin-bottom: 40px">
 						<span>登录名：</span>
-						<input type="text" name="loginname" style="width:400px">
+						<input type="text" name="man_loginname" style="width:400px">
 					</div>
 					<div style="margin-bottom: 40px">
 						<span>密&nbsp&nbsp&nbsp&nbsp码：</span>
-						 <input type="password" name="pwd" style="width:400px">
+						 <input type="password" name="man_pwd" style="width:400px">
 					</div>
 					<div style="margin-bottom:40px">
 					<label>
-				    <input type="radio" name="range"  value="1">
+				    <input type="radio" name="range"  value="总经理">
 				    总经理
 				  </label>
 				  &nbsp;&nbsp;&nbsp;&nbsp;
 				  <label>
-				    <input type="radio" name="range"  value="2">
+				    <input type="radio" name="range"  value="商品经理">
 				    商品经理
 				  </label>
 				   &nbsp;&nbsp;&nbsp;&nbsp;
 				  <label>
-				    <input type="radio" name="range"  value="3">
+				    <input type="radio" name="range"  value="笔记经理">
 				    笔记经理
 				  </label>
 				  </div>

@@ -20,13 +20,16 @@ public class ManagerAction {
 	
 	@RequestMapping("login.do")
 	public ModelAndView login(HttpSession session,Manager manager) {
+		System.out.println(manager.getMan_loginname()+"   "+manager.getMan_range()+"  "+manager.getMan_pwd());
 		Manager man = managerServiceImpl.loginManager(manager);
+		
 		ModelAndView mav = new ModelAndView();
 		if(man == null){
 			mav.setViewName("manager_login");
 			return mav;
 		}
 		String type = manager.getMan_range();
+		System.out.println(type);
 		if(type.equals("1")){
 			mav.setViewName("manager1");
 			session.setAttribute("manager",man);
