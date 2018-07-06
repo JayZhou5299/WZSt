@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import com.model.Manager;
 
 public interface ManagerDao {
@@ -15,5 +17,8 @@ public interface ManagerDao {
 
 	// 根据管理员的账户名删除某个管理员
 	public void deleteManagerByname(String loginname);
+	
+	//根据权限查找管理员
+	public List<Manager> getManagerByRange(String range);
 
 }

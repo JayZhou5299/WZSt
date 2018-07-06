@@ -1,10 +1,19 @@
 package com.model;
 
 public class Manager {
+	private int man_id;
 	private String man_loginname;
 	private String man_name;
 	private String man_pwd;
 	private String man_range;
+
+	public int getMan_id() {
+		return man_id;
+	}
+
+	public void setMan_id(int man_id) {
+		this.man_id = man_id;
+	}
 
 	public String getMan_loginname() {
 		return man_loginname;

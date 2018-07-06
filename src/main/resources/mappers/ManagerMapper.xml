@@ -19,4 +19,8 @@
 	<delete id="deleteManagerByname" parameterType="String">
 		delete from manager where Man_LoginName = #{man_loginname}
 	</delete>
+	
+	<select id="getManagerByRange" parameterType="String" resultType="com.model.Manager">
+		select * from manager where Man_Range=#{man_range}
+	</select>
 </mapper>

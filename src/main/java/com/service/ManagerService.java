@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import com.model.Manager;
 
 public interface ManagerService {
@@ -17,5 +19,8 @@ public interface ManagerService {
 
 	// 查询该name的管理员所有信息
 	public Manager SearchManager(String name);
+	
+	//查询不同权限的管理员
+	public List<Manager> getManager(String range);
 
 }

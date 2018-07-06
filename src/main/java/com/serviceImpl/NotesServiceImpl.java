@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dao.NotesDao;
 import com.dao.UserDao;
+import com.model.Manager;
 import com.model.Notes;
 import com.model.User;
 import com.service.NotesService;
@@ -62,6 +63,7 @@ public class NotesServiceImpl implements NotesService {
 		user.setUser_integ(user.getUser_integ()+1);
 		userDao.updateUser(user);
 	}
+
 
 
 }

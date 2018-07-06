@@ -43,7 +43,7 @@ public class UserAction {
 	}
 	
 	
-	
+	//用户注册时向手机发送验证码
 	@RequestMapping("yanzhengma.do")
 	@ResponseBody
 	public String getRegister(HttpServletRequest request){
@@ -54,12 +54,6 @@ public class UserAction {
 		System.out.println("手机验证码为:"+registerCode);
 		return registerCode;	
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	//用户登录
@@ -75,8 +69,6 @@ public class UserAction {
 			session.setAttribute("User", user);
 //			System.out.println(user.getUser_id());
 			mav = new ModelAndView("index",data);
-			
-			
 		}
 		else{
 			mav = new ModelAndView("login");
@@ -134,7 +126,6 @@ public class UserAction {
 	//用户退出
 	@RequestMapping("ListEmail.do")
 	public ModelAndView listEmail(){
-		
 		ModelAndView mav = new ModelAndView("register");
 		List<String> list = userServiceImpl.listEmail();
 		System.out.println(list.get(1));

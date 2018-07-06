@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Update;
 
+import com.model.Manager;
 import com.model.Notes;
 
 public interface NotesService {
@@ -29,6 +30,7 @@ public interface NotesService {
 	public List<Notes>  ListallNotes();
 	
 	public void addhot(int note_id);
+	
 	
 }
 

@@ -33,10 +33,10 @@ public class CartAction {
 	@RequestMapping("listUserCart.do")
 	public ModelAndView listUserCart(HttpSession session){
 		User user = (User) session.getAttribute("User");
-		List<Cart> list = cartServiceImpl.listcart(1005);
+		List<Cart> list = cartServiceImpl.listcart(1049);
 		ModelAndView mav = new ModelAndView("checkout");
 		System.out.println(list.get(0).getGoods_name());
-		mav.addObject("listCart",list);
+		mav.addObject("cartlist",list);
 		return mav;
 	}
 	

@@ -102,7 +102,7 @@
  </header>
 			<div style="text-align:center;width:100%;">
 				<br><br><br><br><h1>管  理  员  登  录</h1><br><br>
-				<form action="manager/login.do">
+				<form action="manager/login.do" method="post" >
 					<div style="margin-bottom: 40px">
 						<span>登录名：</span>
 						<input type="text" name="man_loginname" style="width:400px">
@@ -113,17 +113,17 @@
 					</div>
 					<div style="margin-bottom:40px">
 					<label>
-				    <input type="radio" name="range"  value="总经理">
+				    <input type="radio" name="man_range"  value="总经理">
 				    总经理
 				  </label>
 				  &nbsp;&nbsp;&nbsp;&nbsp;
 				  <label>
-				    <input type="radio" name="range"  value="商品经理">
+				    <input type="radio" name="man_range"  value="商品经理">
 				    商品经理
 				  </label>
 				   &nbsp;&nbsp;&nbsp;&nbsp;
 				  <label>
-				    <input type="radio" name="range"  value="笔记经理">
+				    <input type="radio" name="man_range"  value="笔记经理">
 				    笔记经理
 				  </label>
 				  </div>

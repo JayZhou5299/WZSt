@@ -2,6 +2,7 @@ package com.dao;
 
 import java.util.List;
 
+import com.model.Manager;
 import com.model.Notes;;
 
 public interface NotesDao {
