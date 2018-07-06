@@ -12,10 +12,6 @@
 %>
 <!DOCTYPE html PUBLIC >
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!--[if IE 7 ]><html class="ie ie7 lte9 lte8 lte7" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="en-US">	<![endif]-->
-<!--[if IE 9]><html class="ie ie9 lte9" lang="en-US"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
 <html class="noIE" lang="en-US">
 <!--<![endif]-->
 <head>
@@ -23,7 +19,7 @@
 
 <base href=" <%=basePath%>">
 <meta charset="UTF-8" />
-<title>wz</title>
+<title>购物车</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="viewport"
@@ -45,14 +41,6 @@
 <!-- GENERAL CSS FILES -->
 <link rel="stylesheet" href="css/minified.css">
 <!-- // GENERAL CSS FILES -->
-
-<!--[if IE 8]>
-		<script src="js/respond.min.js"></script>
-		<script src="js/selectivizr-min.js"></script>
-	<![endif]-->
-<!--
-	<script src="js/jquery.min.js"></script>
-	-->
 <script>
 	window.jQuery
 			|| document.write('<script src="js/jquery.min.js"><\/script>');
@@ -101,25 +89,6 @@
 										</form>
 									</div> <!-- // SEARCH BOX -->
 								</li>
-								<li data-toggle="sub-header" data-target="#sub-social">
-									<!-- SOCIAL ICONS --> <a href="javascript:void(0);"
-									id="social-icons"> <i class="iconfont-share round-icon"></i>
-								</a>
-
-									<div id="sub-social" class="sub-header">
-										<ul class="social-list unstyled text-center">
-											<li><a href="#"><i
-													class="iconfont-facebook round-icon"></i></a></li>
-											<li><a href="#"><i
-													class="iconfont-twitter round-icon"></i></a></li>
-											<li><a href="#"><i
-													class="iconfont-google-plus round-icon"></i></a></li>
-											<li><a href="#"><i
-													class="iconfont-pinterest round-icon"></i></a></li>
-											<li><a href="#"><i class="iconfont-rss round-icon"></i></a></li>
-										</ul>
-									</div> <!-- // SOCIAL ICONS -->
-								</li>
 								<li data-toggle="sub-header" data-target="#sub-cart">
 									<!-- SHOPPING CART --> <a href="javascript:void(0);"
 									id="total-cart"> <i
@@ -147,13 +116,13 @@
 
 							<div class="clearfix"></div>
 							<!-- USER RELATED MENU -->
-							<nav id="tiny-menu" class="clearfix">
-								<ul class="user-menu">
+<!-- 							<nav id="tiny-menu" class="clearfix"> -->
+<!-- 								<ul class="user-menu"> -->
 
-									<li><a href="login.jsp">登录</a></li>
-									<li><a href="register.jsp">注册</a></li>
-								</ul>
-							</nav>
+<!-- 									<li><a href="login.jsp">登录</a></li> -->
+<!-- 									<li><a href="register.jsp">注册</a></li> -->
+<!-- 								</ul> -->
+<!-- 							</nav> -->
 							<!-- // USER RELATED MENU -->
 						</div>
 						<!-- // CURRENCY / LANGUAGE / USER MENU -->
