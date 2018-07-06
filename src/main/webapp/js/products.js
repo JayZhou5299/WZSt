@@ -1,23 +1,5 @@
 jQuery(function($) {
 	
-	/*
-	| ----------------------------------------------------------------------------------
-	| Shopping cart - Remove Row on click Close button
-	| ----------------------------------------------------------------------------------
-	*/
-	$(document).on('click', '.tbl-cart .close', function() {
-		$(this).closest('tr').fadeOut(500, function() {
-			$(this).remove();
-			update_cart_total();
-			
-			if ( $('.tbl-cart tbody tr:not(.empty-cart)').length == 0 )
-			{
-				$('.tbl-cart .empty-cart').removeClass('hide');
-			}
-		});
-		
-	});
-	
 	
 	/*
 	| ----------------------------------------------------------------------------------
@@ -65,68 +47,6 @@ jQuery(function($) {
 		update_cart_total();
 	}
 	output_cookie();
-	
-	
-	/*
-	| ----------------------------------------------------------------------------------
-	| Shopping cart - QTY
-	| ----------------------------------------------------------------------------------
-	*/
-	$('.qty-btn-group button').on('click', function() {
-		var $this = $(this),
-			$input = $this.siblings('input'),
-			val = parseInt($input.val());
-		
-		val = ( $this.hasClass('up') ) ? ++val : --val;
-		if ( isNaN(val) || val < 0 ) val = 0;
-		
-		$input.val(val);
-		
-		var $row = $this.closest('tr'),
-			unit_price = $row.find('.unit-price').text(),
-			row_total = unit_price.replace( /^\D+/g, '') * val;
-		
-		$row.find('.row-total').text('$' + row_total.toFixed(2));
-		
-		update_cart_total();
-	});
-	
-	
-	/*
-	| ----------------------------------------------------------------------------------
-	| Shopping cart - Update Total & Sub Total
-	| ----------------------------------------------------------------------------------
-	*/
-	function update_cart_total()
-	{
-		var total = 0,
-			subtotal = 0;
-			
-		$('.tbl-cart .row-total').each(function() {
-			temp = $(this).text();
-			temp = temp.replace( /^\D+/g, '');
-			temp = parseFloat(temp);
-			
-			if ( ! isNaN(temp) )
-			{
-				total += temp;
-			}
-		});
-			
-		$('.tbl-cart .unit-price').each(function() {
-			temp = $(this).text();
-			temp = temp.replace( /^\D+/g, '');
-			temp = parseFloat(temp);
-			
-			if ( ! isNaN(temp) )
-			{
-				subtotal += temp;
-			}
-		});
-		
-		$('.shopcart-total .cart-subtotal > .pull-right').text('$' + subtotal.toFixed(2));
-		$('.shopcart-total .cart-total > .pull-right').text('$' + total.toFixed(2));
-	}
 	
 	
 	/*

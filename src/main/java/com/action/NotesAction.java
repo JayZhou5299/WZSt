@@ -124,14 +124,15 @@ public class NotesAction {
 
 	// 删除笔记
 	@RequestMapping("delete.do")
-	public ModelAndView delete() {
-		int note_id = 3004;
+	public ModelAndView delete(HttpServletRequest request) {
+		int note_id = Integer.parseInt(request.getParameter("noteId"));
+		System.out.println(note_id);
 		notesServiceImpl.deleteNotes(note_id);
-		ModelAndView mav = new ModelAndView("需要跳转的页面");
+		ModelAndView mav = new ModelAndView("manager2");
+		List<Notes> notes = notesServiceImpl.ListallNotes();
+		mav.addObject("Notes", notes);
 		return mav;
 	}
-	
-	
 	
 	@RequestMapping("listbyuserid.do")
 	public ModelAndView listbyuserid(HttpSession session){
@@ -141,13 +142,34 @@ public class NotesAction {
 		return mav;
 	}
 	
-	
 	@RequestMapping("addhot.do")
-	public ModelAndView addhot(){
-		int note_id = 3043;
+	public ModelAndView addhot(int note_id){
+//		int note_id = 3043;
+		System.out.println(note_id);
 		notesServiceImpl.addhot(note_id);
 		ModelAndView mav = new ModelAndView("跳转的页面");
 		return mav;
 	}
 	
+	@RequestMapping("/NotesInfo.do")
+	public ModelAndView listNotesInfo() { 
+		System.out.println("hanyuzhou");
+		List<Notes> notes = notesServiceImpl.ListallNotes();
+		System.out.println(notes.get(1).getNote_hot()+"热度"+"  "+notes.get(1).getNote_name()+" "+notes.get(1).getNote_id());
+		ModelAndView mav = new ModelAndView("manager2");
+		mav.addObject("Notes", notes);
+		return mav;
+	}
+	
+	@RequestMapping("/noteDetail.do")
+	public ModelAndView listNodeDetail(HttpServletRequest request) { 
+		String noteId=request.getParameter("noteId");
+		int Id=Integer.parseInt(noteId);
+		System.out.println("选中的笔记id"+Id);
+		Notes notes = notesServiceImpl.SearchNotesById(Id);
+		ModelAndView mav = new ModelAndView("noteDetail");
+		mav.addObject("NotesDetail", notes);
+		System.out.println(notes);
+		return mav;
+	}
 }

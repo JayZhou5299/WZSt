@@ -18,7 +18,6 @@ public class CartServiceImpl implements CartService {
 	CartDao cartDao;
 
 	public List<Cart> listcart(int user_id) {
-
 		return cartDao.getcartByuserid(user_id);
 	}
 
@@ -42,7 +41,7 @@ public class CartServiceImpl implements CartService {
 
 	}
 
-	public void saveCart(Goods goods, int userid, int num, int price) {
+	public void saveCart(Goods goods,int userid,int num,int price) {
 		Cart cart = new Cart();
 		cart.setGoods_id(goods.getGoods_id());
 		cart.setGoods_image(goods.getGoods_pic());

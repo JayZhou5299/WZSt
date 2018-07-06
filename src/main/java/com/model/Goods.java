@@ -8,7 +8,7 @@ public class Goods {
 	private int smal_class;
 	private String goods_class;
 	private String goods_pic;
-	private String goods_price;
+	private int goods_price;
 	private Date create_time;
 	private Date modified_time;
 	private String goods_unit;
@@ -49,11 +49,14 @@ public class Goods {
 		this.goods_pic = goods_pic;
 	}
 
-	public String getGoods_price() {
+	
+	
+
+	public int getGoods_price() {
 		return goods_price;
 	}
 
-	public void setGoods_price(String goods_price) {
+	public void setGoods_price(int goods_price) {
 		this.goods_price = goods_price;
 	}
 

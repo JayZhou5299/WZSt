@@ -68,7 +68,6 @@ public class GoodsAction {
 		ModelAndView mav = new ModelAndView();
 		List<Goods> goods = goodsServiceImpl.ListallGoods();
 		List<Goods> goodsList = goods.subList(0, 9);
-
 		session.setAttribute("products", goodsList);
 		mav.setViewName("products");
 		// System.out.println(notes);

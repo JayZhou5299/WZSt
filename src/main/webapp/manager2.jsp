@@ -162,24 +162,7 @@
 					<!-- CURRENCY / LANGUAGE / USER MENU -->
 					<div class="actions">
 						<div class="center-xs"></div>
-						<!-- USER RELATED MENU -->
-						<nav id="tiny-menu" class="clearfix">
-						<c:if test="${not empty User}">
-							<ul class="user-menu">
-								<li><h4>${User.user_name}  欢迎您</h4></li>
-								<li><a href="user/exit.do">退出</a></li>
-							</ul>
-						</c:if>
-						<c:if test="${empty User}">
-							<ul class="user-menu">
-								<li><a href="login.jsp">登录</a></li>
-								<li><a href="register.jsp">注册</a></li>
-							</ul>
-						</c:if>
-						</nav>
-						<!-- // USER RELATED MENU -->
 					</div>
-					<!-- // CURRENCY / LANGUAGE / USER MENU -->
 					<!-- SITE LOGO -->
 					<div class="logo-wrapper">
 						<a href="index.jsp" class="logo"
@@ -188,20 +171,6 @@
 							alt="GFashion - Responsive e-commerce HTML Template" />
 						</a>
 					</div>
-					<!-- // SITE LOGO -->
-					<!-- SITE NAVIGATION MENU -->
-					<nav id="site-menu" role="navigation">
-					<ul class="main-menu hidden-sm hidden-xs">
-						<li><a href="index.jsp">主页</a></li>
-						<li><a href="note.jsp">笔记</a></li>
-						<li><a href="products.jsp">商城</a></li>
-						<li><a href="userInfo.jsp">我的</a></li>
-					</ul>
-
-
-
-					</nav>
-					<!-- // SITE NAVIGATION MENU -->
 				</div>
 			</div>
 		</div>
@@ -214,7 +183,7 @@
 				<div class="relative">
 					<ul class="bc push-up unstyled clearfix">
 						<li><a href="index.jsp">主页</a></li>
-						<li class="active">笔记</li>
+						<li class="active">笔记经理</li>
 					</ul>
 				</div>
 			</div>
@@ -230,219 +199,117 @@
 					<!-- SIDEBAR -->
 					<aside class="col-xs-12 col-sm-4 col-md-3"> <section
 						class="sidebar push-up"> <!-- CATEGORIES --> <section
-						class="side-section bg-white"> <header
+						class="side-section bg-white"> 
+						
+						<header
 						class="side-section-header">
-					<h3 class="side-section-title">发布笔记</h3>
+					<h3 class="side-section-title">笔记经理</h3>
 					</header>
+					
 					<div class="side-section-content">
-						<h3>编辑笔记</h3>
-						<form action="notes/add.do" method="post"  enctype="multipart/form-data">
-							<div class="form-group">
-								<label for="exampleInputEmail1">笔记名称</label> <input type="text"
-									class="form-control" name="note_name" placeholder="Notes Name">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputPassword1">笔记描述</label>
-								<textarea name="note_des" class="form-control" rows="3"
-									placeholder="Notes Description"></textarea>
-							</div>
-							<div class="form-group">
-								<label for="exampleInputFile">上传图片</label> <input type="file"
-									name="note_pic">	
-								<p class="help-block">上传所发布的笔记图片</p>
-							</div>
-							<div class="checkbox">
-								<br>
-								<button type="submit" class="btn btn-default btn-xs">发布笔记</button>
-							</div>
-						</form>
+						<h3></h3>
+						<form action="#" method="get">
+						
+						<div class="form-group">
+    						<label for="exampleInputEmail1"><h4>尊敬的${sessionScope.manager.man_name} ${sessionScope.manager.man_range}</br>您好</h4></label>		
+  						</div>
+  						
+  						<div class="form-group">
+    						<label for="exampleInputPassword1"><h4>您的登录名为</br>${sessionScope.manager.man_loginname}</h4></label>
+  						</div>
+  						
+  						<div class="form-group">
+    						<label for="exampleInputPassword1"><h4>您的id为</br>${sessionScope.manager.man_id}</h4></label>
+  						</div>
+  						
+  						
+  						<div class="checkbox">
+  							<br>
+  							<button type="submit" class="btn btn-default btn-xs">退出</button>
+  						</div>
+							 
+					</form>
 					</div>
 					<footer class="side-section-footer text-center hide">
 					<button type="button" id="btn-filter-cat"
 						class="btn btn-primary btn-round uppercase">Clear Filters</button>
 					</footer> </section> <!-- // CATEGORIES --> <section class="side-section bg-white">
 					</section> <!-- BEST SELLERS --> <section class="side-section bg-white">
-					<header class="side-section-header">
-					<h3 class="side-section-title">热销商品</h3>
-					</header>
-					<div class="side-section-content">
-						<ul class="product-medialist li-m-t unstyled clearfix">
-							<li>
-								<div class="item clearfix">
-									<a href="images/zhuye/basic/17.jpg" data-toggle="lightbox"
-										class="entry-thumbnail"> <img
-										src="images/zhuye/basic/17.jpg" alt="Inceptos orci hac libero" />
-									</a>
-									<h5 class="entry-title">
-										<a href="product.html">SKII 小红瓶</a>
-									</h5>
-									<s class="entry-discount m-r-sm"><span class="text-sm">¥962</span></s>
-									<span class="entry-price accent-color">¥990</span>
-								</div>
-							</li>
-							<li>
-								<div class="item clearfix">
-									<a href="images/zhuye/basic/18.jpg" data-toggle="lightbox"
-										class="entry-thumbnail"> <img
-										src="images/zhuye/basic/18.jpg" alt="Inceptos orci hac libero" />
-									</a>
-									<h5 class="entry-title">
-										<a href="product.html">安耐晒</a>
-									</h5>
-									<span class="entry-price">¥220</span>
-								</div>
-							</li>
-						</ul>
-					</div>
-					</section> <!-- // BEST SELLERS --> <!-- PROMO -->
-					<div class="promo inverse-background"
-						style="background: url('images/demo/small.jpg') no-repeat; background-size: auto 100%;">
-						<div class="inner text-center np">
-							<div class="ribbon">
-								<h6 class="nmb">新品到货</h6>
-								<h5 class="text-semibold uppercase nmb">护 肤 秘 籍</h5>
-								<div class="space10"></div>
-								<a href="products.jsp" class="with-icon prepend-icon"><i
-									class="iconfont-caret-right"></i><span>立即购买</span></a>
-							</div>
-						</div>
-					</div>
-					<!-- // PROMO --> </section> </aside>
-					<!-- // SIDEBAR -->
-					<section class="col-xs-12 col-sm-8 col-md-9"> <section
-						class="products-wrapper"> <!-- DISPLAY MODE - NUMBER OF ITEMS TO BE DISPLAY - PAGINATION -->
-					<header class="products-header">
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-6 center-xs"></div>
-						<div class="space30 visible-xs"></div>
-						<!-- PAGINATION -->
-						<div class="col-xs-12 col-sm-12 col-md-6 center-xs">
-							<ul class="paginator li-m-r-l pull-right">
-								<li><a class="round-icon" onclick="showLast()"
-									data-toggle="tooltip" data-title="上一页"><i
-										class="iconfont-angle-left"></i></a></li>
-								<li><a class="round-icon" 
-									onclick="showNext()" data-toggle="tooltip" data-title="下一页"><i
-										class="iconfont-angle-right"></i></a></li>
-							</ul>
-						</div>
-						<!-- // PAGINATION -->
-					</div>
-					</header> <!-- // DISPLAY MODE - NUMBER OF ITEMS TO BE DISPLAY - PAGINATION -->
-
-					<!-- PRODUCT LAYOUT -->
-					<div id="noteAjax" 
-						class="products-layout list m-t-b add-cart showthis"
-						data-product=".product" data-thumbnail=".entry-media .thumb"
-						data-title=".entry-title > a" data-url=".entry-title > a"
-						data-price=".entry-price > .price">
-
-						
-								<script type="text/javascript">
-										
-									/*
-									 * 解决ajax返回的页面中含有javascript的办法：
-									 * 把xmlHttp.responseText中的脚本都抽取出来，不管AJAX加载的HTML包含多少个脚本块，我们对找出来的脚本块都调用eval方法执行它即可
-									 */
-									 
-											var pageChange="<%=session.getAttribute("newPage")%>";
-											var page=window.parseInt(pageChange);
-											 
-											function showLast(){
-												page-=1;
-// 												alert(page);
-												if(page!=0){
-													$.ajax({
-														type : "POST",
-														async : true,  //同步请求
-														url : "notes/shownewnotes.do",
-														data : {"page":page},
-														success:function(msg){
-// 															alert(msg);
-															//$("#productAjax").html(msg);//要刷新的div
-				 										document.getElementById("noteAjax").innerHTML=msg;
-				 										//window.location.reload();	
-															//$(document).on("click","newinput",function(){$("#productAjax").html(msg);});
-														},
-														error: function() {
-											               alert("失败，请稍后再试！");
-											            }
-													});	
-												}else{
-													alert("没有当前页面请点击下一页");
-												}
-												
-											}
-																					
-											function showNext(){
-											page+=1;
-// 											alert(page);
-											$.ajax({
-												type : "POST",
-												async : true,  //同步请求
-												url : "notes/shownewnotes.do",
-												data : {"page":page},
-												success:function(msg){
-													//alert(msg);
-													//$("#productAjax").html(msg);//要刷新的div
-		 										document.getElementById("noteAjax").innerHTML=msg;
-		 										//window.location.reload();	
-													//$(document).on("click","newinput",function(){$("#productAjax").html(msg);});
-												},
-												error: function() {
-									               alert("失败，请稍后再试！");
-									            }
-											});	
-										}				
-									</script>
-
-
-						<c:forEach items="${Notes}" var="note">
-						<div class="product" data-product-id="1">
-							<div class="entry-media">
-								<img data-src="${note.note_pic}" alt=""
-									class="lazyLoad thumb" />
-								<div class="hover">
-									<a href="product.jsp" class="entry-url"></a>
-									<div class="rate-bar">
-										<input type="range" value="4.5" step="0.5" id="backing1" />
-										<div class="rateit" data-rateit-backingfld="#backing1"
-											data-rateit-starwidth="12" data-rateit-starheight="12"
-											data-rateit-resetable="false" data-rateit-ispreset="true"
-											data-rateit-min="0" data-rateit-max="5"></div>
-									</div>
-								</div>
-							</div>
-							<div class="entry-main">
-								<h5 class="entry-title">
-									<a href="product.jsp">${note.note_name}</a>
-								</h5>
-								<div class="entry-description visible-list">
-									<p>
-									${note.note_des}
-<!-- 									偏光粉紫的少女桃花妆 性价比十足的眼上粉银河。积极响应局长号召，画个国民少女桃花妆 -->
-<!-- 										(*≧▽≦)大家对桃花妆的印象大多数粉色红色玫红色～今天想试试不一样的紫色！！用的完美日记四色眼影04紫薰迷雾一开始看图片我是被右下角那块偏光紫迷昏倒。到手迫不及待摸了一把！左上那块太美了！！！图片上看我就以为是普通的白色提亮色，实际上是一块特别美的白粉紫偏光！闪片很密集！白色紫色粉色，好多细小闪片凑一起特别灵！！百分百的眼上银河，而且特细腻，扒的也很牢不乱飞！太惨了(;´༎ຶД༎ຶ`)官方居然没有突出他(;´༎ຶД༎ຶ`)整体粉质都不错，最最最喜欢那小块了！很百搭，我配了其他的眼影盘都很好看！好希望出个单色啊啊啊！！局长说随便哪里画个小花就阔以，我就画了眼睛下面，无奈手残，这大概是全网最蠢的小桃花了吧（本来还以为自己画完会像林诗音呢） -->
-										</p>
-								</div>
-								<div class="entry-price">
-								<form action="notes/addhot.do" method="post">
-									<input type="hidden" value = "${note.note_id}" name = "note_id">
-									<button type="submit" class="btn btn-primary uppercase">赞</button>
-								</form>
-									
-								</div>
-								<div class="entry-links clearfix"></div>
-							</div>
-						</div>
-						
-						</c:forEach>
+					 </aside>
+					<div style="width:1000px;height:800px;margin-left:320px;">
+				
+				    <div style="overflow-y:auto; overflow-x:auto; width:400px;height:580px;float:left">
+						  
+						  <c:forEach items="${Notes}" var="note" >
+						  <input type="hidden" value="${note.note_id}" id="idHere">
+						  <ul style="position: relative;border-bottom:1px dotted black;height：30px">	
+						  <li>发布者Id：${note.user_id}</li>
+						  <li>笔记名称：${note.note_name}
 							
+						  <input style="position: absolute; left:270px; top: 15px;" type="button" 
+						  onclick="getNote(this)" name="${note.note_id}" value="查看">
+						  </li>
+						  <li>笔记热度：${note.note_hot}</li>
+						  <br/>
+						  </ul>
+						  <br/>
+                          </c:forEach>	  
+				    </div>
+				    
+				    
+				    
+				    
+				    
+				    
+						<script>
 
-					
 						
-						</div>
-						<!-- // PRODUCT LAYOUT -->
-					</section> </section>
+						
+						
+							function getNote(btn){
+								var noteId = $(btn).attr("name");
+								$.ajax({
+									url:"notes/noteDetail.do",
+									type:"post",
+									async:false,
+									data:{"noteId":noteId},
+									dataType:"text",
+									success:function (data) {
+										document.getElementById("noteDetail").innerHTML=data;
+									}, 
+					                error:function(){
+					                	alert("wrong!");
+					                },
+								});
+							}
+						</script>
+						
+					<div id="noteDetail" style="overflow-y:auto; overflow-x:auto;width:500px;height:580px;margin-left:425px;position:relative">	
+					</div>
+
+						<script>
+							function deleteNote(btn) {
+								var noteId = $(btn).attr("name");
+								//alert(noteId);
+								$.ajax({
+									url:"notes/delete.do",
+									type:"post",
+									async:false,
+									data:{"noteId":noteId},
+									dataType:"html",
+									success:function (data) {
+										document.innerHTML=data;
+										alert("已成功删除此条！！！");
+										url:"notes/NotesInfo.do"
+									}, 
+					                error:function(){
+					                	alert("wrong!");
+					                },
+								});
+							}	
+			
+						</script>
+					</div>
 				</div>
 
 			</div>

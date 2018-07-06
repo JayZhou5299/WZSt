@@ -163,7 +163,7 @@
 								<li><a href="notes/listnotes.do">笔 记</a></li>
 								<li><a href="goods/listproducts.do">商 城</a></li>
 								<li><a href="notes/addhot.do">我 的</a></li>
-								<li><a href="cart/listUserCart.do">TEST</a></li>
+								<li><a href="user/ListEmail.do">TEST</a></li>
 							</ul>
 							
 							<!-- MOBILE MENU -->

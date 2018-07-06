@@ -22,11 +22,15 @@ public class CartAction {
 	CartServiceImpl cartServiceImpl;
 	
 	@RequestMapping("add.do")
-	public ModelAndView add(Goods goods,HttpSession session,int sum,int num){
-		Cart cart = new Cart();
+	public ModelAndView add(Goods goods,HttpSession session){
+		System.out.println("12312321");
+		System.out.println(goods.getGoods_name()+goods.getGoods_id()+"I am Jay"+goods.getGoods_price());
 		User user = (User) session.getAttribute("User");
+		int num =1;
+		int sum =goods.getGoods_price();
 		cartServiceImpl.saveCart(goods,user.getUser_id(),num,sum);
-		ModelAndView mav = new ModelAndView("checkout");
+		System.out.println(user.getUser_id()+num+sum);
+		ModelAndView mav = new ModelAndView("跳转的页面");
 		return mav;
 	}
 	
@@ -35,8 +39,9 @@ public class CartAction {
 	@RequestMapping("listUserCart.do")
 	public ModelAndView listUserCart(HttpSession session){
 		User user = (User) session.getAttribute("User");
-		List<Cart> list = cartServiceImpl.listcart(1049);
-		ModelAndView mav = new ModelAndView("checkout");
+		System.out.println(user.getUser_id());
+		List<Cart> list = cartServiceImpl.listcart(user.getUser_id());
+		ModelAndView mav = new ModelAndView("cart");
 		System.out.println(list.get(0).getGoods_name());
 		mav.addObject("cartlist",list);
 		return mav;

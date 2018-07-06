@@ -128,7 +128,9 @@ public class UserAction {
 	public ModelAndView listEmail(){
 		ModelAndView mav = new ModelAndView("register");
 		List<String> list = userServiceImpl.listEmail();
-		System.out.println(list.get(1));
+//		System.out.println(list.get(1));
+//		System.out.println(list.get(2));
+//		System.out.println(list.get(3));
 		mav.addObject("EmailList",list);
 		return mav;
 	}

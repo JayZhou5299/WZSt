@@ -18,7 +18,7 @@ public interface NotesService {
 	public List<Notes> ListHotNotes();
 
 	// 根据输入信息名称查找相关笔记（支持模糊查询，用到like关键字）
-	public List<Notes> SearchNotes(String name);
+	public Notes SearchNotesById(int note_id);
 
 	// 发布笔记
 	public void addNotes();

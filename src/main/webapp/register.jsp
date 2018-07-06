@@ -187,9 +187,32 @@
 <!-- 	    <button  onclick="getPhone()">获取验证码</button> -->
 		</div>
 
+
+
+
+
+<%-- <c:forEach items="${EmailList}" var="em" varStatus="st"> --%>
+<%--   <span id="test">${em}</span> --%>
+<%-- </c:forEach> --%>
+
+
 	    <script>
-	        var getCode="";
+	    
+       
+
+// 	        var arr = ["one","two","three","four"];
+// 	        var i=document.getElementsById("test").innerText;
+// // 	        var list = ${EmailList};
+// 	        alert(i);
+// 	  		$.each(arr,function(){
+// 	  			if(this=="two")
+// 	  			alert("邮箱已经存在");
+// 	  			else
+// 	  				alert(this);})
 	        
+	        
+	        
+	         var getCode="";
 			function getPhone(){
 				var tel=document.getElementById("tel").value;
 				//alert(tel);
@@ -246,6 +269,7 @@
 		      }
 		      
 		      function check_email() {
+		    	  
 		          var zhi = document.getElementById("email").value;
 		      var reg =/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 		          var re = new RegExp(reg);
@@ -258,7 +282,7 @@
 		        		$("#tishi_email").html("邮箱格式错误");
 		              	$("#tishi_email").css("color","red");
 		              return false;
-		          }
+		          }     
 		      }
 		      
 		      function check_tel() {

@@ -1,7 +1,6 @@
 package com.action;
 
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -12,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.model.Manager;
+import com.model.Notes;
 import com.serviceImpl.ManagerServiceImpl;
+import com.serviceImpl.NotesServiceImpl;
 
 @RequestMapping("/manager")
 @Controller
@@ -20,6 +21,9 @@ public class ManagerAction {
 	
 	@Resource
 	ManagerServiceImpl managerServiceImpl;
+	
+	@Resource
+	NotesServiceImpl notesServiceImpl;
 	
 	@RequestMapping("login.do")
 	public ModelAndView login(HttpSession session,Manager manager) {
@@ -42,12 +46,14 @@ public class ManagerAction {
 			session.setAttribute("GoodsManager", goodsManager);
 			session.setAttribute("NotesManager",notesManager);
 		}
-		else if(type.equals("商品经理")){
+		else if(type.equals("笔记经理")){
+			List<Notes> notes = notesServiceImpl.ListallNotes();
+			mav.addObject("Notes", notes);
 			mav.setViewName("manager2");
 			session.setAttribute("manager",man);
 		}
 		else{
-			mav.setViewName("笔记经理");
+			mav.setViewName("商品经理");
 			session.setAttribute("manager",man);
 		}
 		return mav;

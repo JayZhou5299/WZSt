@@ -42,13 +42,8 @@
 <link rel="stylesheet" href="css/minified.css">
 <!-- // GENERAL CSS FILES -->
 
-<!--[if IE 8]>
-		<script src="js/respond.min.js"></script>
-		<script src="js/selectivizr-min.js"></script>
-	<![endif]-->
-<!--
 	<script src="js/jquery.min.js"></script>
-	-->
+
 <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>');</script>
 <script src="js/modernizr.min.js"></script>
 <!-- PARTICULAR PAGES CSS FILES -->
@@ -496,10 +491,16 @@
 
 										<div class="product " data-product-id="1"
 											style="visibility: visible; opacity: 1;">
-
+											
+											
 											<div class="entry-media">
 												<img alt="" class="lazyLoad thumb" src="${pro.goods_pic}">
 												<div class="hover">
+												<form action="cart/add.do" method="post">
+													<input type="hidden" name="goods_name" value="${pro.goods_name}">
+													<input type="hidden" name="goods_pic" value="${pro.goods_pic}">
+													<input type="hidden" name="goods_price" value="${pro.goods_price}">
+													<input type="hidden" name="goods_id" value="${pro.goods_id}">													
 													<a href="" class="entry-url"></a>
 													<ul class="icons unstyled">
 														<li>
@@ -507,28 +508,29 @@
 														</li>
 														<li><a href="images/cz/9c.jpg" class="circle"
 															data-toggle="lightbox"><i class="iconfont-search"></i></a></li>
-														<li><a href="#" class="circle add-to-cart"><i
-																class="iconfont-shopping-cart"></i></a></li>
+														<li><button type="submit" class="circle"><i
+																class="iconfont-shopping-cart"></i></button></li>
 													</ul>
-													
+													</form>
 												</div>
 											</div>
+											
 											<div class="entry-main">
 												<h5 class="entry-title">
-													<a href="">${pro.goods_name }</a>
+													<a href="">${pro.goods_name}</a>
 												</h5>
 												<div class="entry-description visible-list">
-													<p>${goods_unit }</p>
+													<p>${goods_unit}</p>
 												</div>
 												<div class="entry-price">
 													<strong>${pro.goods_price}元</strong> <a href="#"
 														class="btn btn-round btn-default add-to-cart visible-list">Add
 														to Cart</a>
 												</div>
-
 											</div>
 										</div>
 									</div>
+									
 								</c:forEach>
 
 

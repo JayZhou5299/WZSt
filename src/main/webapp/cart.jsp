@@ -12,6 +12,10 @@
 %>
 <!DOCTYPE html PUBLIC >
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!--[if IE 7 ]><html class="ie ie7 lte9 lte8 lte7" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="en-US">	<![endif]-->
+<!--[if IE 9]><html class="ie ie9 lte9" lang="en-US"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
 <html class="noIE" lang="en-US">
 <!--<![endif]-->
 <head>
@@ -19,7 +23,7 @@
 
 <base href=" <%=basePath%>">
 <meta charset="UTF-8" />
-<title>购物车</title>
+<title>微妆购物车</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="viewport"
@@ -41,6 +45,14 @@
 <!-- GENERAL CSS FILES -->
 <link rel="stylesheet" href="css/minified.css">
 <!-- // GENERAL CSS FILES -->
+
+<!--[if IE 8]>
+		<script src="js/respond.min.js"></script>
+		<script src="js/selectivizr-min.js"></script>
+	<![endif]-->
+<!--
+	<script src="js/jquery.min.js"></script>
+	-->
 <script>
 	window.jQuery
 			|| document.write('<script src="js/jquery.min.js"><\/script>');
@@ -68,7 +80,7 @@
 							<!-- CONTACT INFO -->
 							<div class="contact-info">
 								<i class="iconfont-headphones round-icon"></i> <strong>+86
-									（100）0000</strong> <span>(周一- 周五: 09.00 - 21.00)</span>
+									(100) 0000</strong> <span>(周一- 周五: 09.00 - 21.00)</span>
 							</div>
 							<!-- // CONTACT INFO -->
 						</div>
@@ -88,6 +100,25 @@
 											</div>
 										</form>
 									</div> <!-- // SEARCH BOX -->
+								</li>
+								<li data-toggle="sub-header" data-target="#sub-social">
+									<!-- SOCIAL ICONS --> <a href="javascript:void(0);"
+									id="social-icons"> <i class="iconfont-share round-icon"></i>
+								</a>
+
+									<div id="sub-social" class="sub-header">
+										<ul class="social-list unstyled text-center">
+											<li><a href="#"><i
+													class="iconfont-facebook round-icon"></i></a></li>
+											<li><a href="#"><i
+													class="iconfont-twitter round-icon"></i></a></li>
+											<li><a href="#"><i
+													class="iconfont-google-plus round-icon"></i></a></li>
+											<li><a href="#"><i
+													class="iconfont-pinterest round-icon"></i></a></li>
+											<li><a href="#"><i class="iconfont-rss round-icon"></i></a></li>
+										</ul>
+									</div> <!-- // SOCIAL ICONS -->
 								</li>
 								<li data-toggle="sub-header" data-target="#sub-cart">
 									<!-- SHOPPING CART --> <a href="javascript:void(0);"
@@ -115,15 +146,6 @@
 						<div class="actions">
 
 							<div class="clearfix"></div>
-							<!-- USER RELATED MENU -->
-<!-- 							<nav id="tiny-menu" class="clearfix"> -->
-<!-- 								<ul class="user-menu"> -->
-
-<!-- 									<li><a href="login.jsp">登录</a></li> -->
-<!-- 									<li><a href="register.jsp">注册</a></li> -->
-<!-- 								</ul> -->
-<!-- 							</nav> -->
-							<!-- // USER RELATED MENU -->
 						</div>
 						<!-- // CURRENCY / LANGUAGE / USER MENU -->
 						<!-- SITE LOGO -->
@@ -197,13 +219,14 @@
 										<button type="button" class="reduce" onClick="f2(this);">
 											<i class="iconfont-caret-down inline-middle"></i>
 										</button>
-										<input type="text"  id="input_num" name="input_num" value="1"readonly/>
-										<button type="button" class="add" onClick="f1(this);" >
+										<input type="text" id="input_num" name="input_num" value="${cp.goods_num}"
+											readonly />
+										<button type="button" class="add" onClick="f1(this);">
 											<i class="iconfont-caret-up inline-middle"></i>
 										</button>
 									</div>
 								</td>
-								<td id="add_total"><span>${cp.goods_price}</span></td>
+								<td id="add_total"><span>${cp.goods_price*cp.goods_num}</span></td>
 								<td><button type="button" class="close" aria-hidden="true">x</button></td>
 							</tr>
 						</c:forEach>
@@ -213,17 +236,18 @@
 
 
 
-			
-<c:forEach items="${cartlist}" var="c">
-	    <c:set var="sum" value="${sum+c.goods_price}"/>
-</c:forEach>
 
-				
+				<c:forEach items="${cartlist}" var="c">
+<%-- 					<span>${c.goods_price}*${cp.goods_num}</span> --%>
+					<c:set var="sum" value="${sum+c.goods_price*c.goods_num}" />
+				</c:forEach>
+
+
 
 
 				<div class="shopcart-total pull-right clearfix">
 					<div class="cart-total text-bold m-b-lg clearfix">
-						<span class="pull-left">总价:</span><span class="pull-right"
+						<span class="pull-left">总价:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span 
 							id="sum_total">${sum}</span>
 					</div>
 					<div class="text-center">
@@ -237,7 +261,7 @@
 		</section>
 
 		<script>
-			function f1(ele) {
+			function f1(ele){
 				var add_price = parseFloat($(
 						ele.parentNode.parentNode.parentNode).find("span")
 						.text());
@@ -248,9 +272,12 @@
 						(single_price + add_price).toFixed(2));
 
 				var sum_total = parseFloat(document.getElementById("sum_total").innerHTML);
-// 				alert(sum_total+"    "+single_price);
-				document.getElementById("sum_total").innerText = (sum_total
-						+ single_price).toFixed(2);
+// 				alert(sum_total + "    " + single_price);
+// 				alert((sum_total + single_price).toFixed(2));
+
+// 				alert(document.getElementById("sum_total").innerText+"hyz");
+				document.getElementById("sum_total").innerText = (sum_total + single_price).toFixed(2);
+					
 			}
 
 			function f2(ele) {
@@ -269,32 +296,39 @@
 							(add_price - single_price).toFixed(2));
 					var sum_total = parseFloat(document
 							.getElementById("sum_total").innerHTML);
-					document.getElementById("sum_total").innerText = (sum_total
-							- single_price).toFixed(2);
+					document.getElementById("sum_total").innerText = (sum_total - single_price)
+							.toFixed(2);
 				}
 			}
-			$(".close").click(function() {
-				$(this).parents("tr").remove();
-				
-				var jian = $(this).parents("tr").find("span").text();
-				var sum_total = parseFloat(document
-						.getElementById("sum_total").innerHTML);
-				document.getElementById("sum_total").innerText = (sum_total
-						- jian).toFixed(2);
-			})
+			$(".close")
+					.click(
+							function() {
+								$(this).parents("tr").remove();
+
+								var jian = $(this).parents("tr").find("span")
+										.text();
+								var sum_total = parseFloat(document
+										.getElementById("sum_total").innerHTML);
+								document.getElementById("sum_total").innerText = (sum_total - jian)
+										.toFixed(2);
+							})
 
 			$(".add").click(function() {
-				$(this).prev().val(parseFloat($(this).prev().val()) + 1);
+// 				alert($(this).prev().val(parseFloat($(this).prev().val()) + 1));
+// 				alert($(this).prev().val());
+				var num = parseInt($(this).prev().val()) + 2;
+// 				alert(num);
+// 				alert(num);
+				$(this).prev().val(num);
 			});
 
 			$(".reduce").click(function() {
 				if ($(this).next().val() == "0") {
+					alert("不能减了，哥");
 					$(this).next().val(0);
 				} else
-					$(this).next().val(parseFloat($(this).next().val()) - 1);
+					$(this).next().val(parseFloat($(this).next().val()));
 			});
-			
-			
 		</script> <!-- RELATED PRODUCTS -->
 		<section class="section visible-items-4">
 			<div class="container">

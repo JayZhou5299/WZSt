@@ -35,9 +35,9 @@ public class NotesServiceImpl implements NotesService {
 		return notesDao.ListNotes();
 	}
 
-	public List<Notes> SearchNotes(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public Notes SearchNotesById(int note_id) {
+		
+		return notesDao.SearchNotesById(note_id);
 	}
 
 	public void addNotes() {
@@ -63,7 +63,5 @@ public class NotesServiceImpl implements NotesService {
 		user.setUser_integ(user.getUser_integ()+1);
 		userDao.updateUser(user);
 	}
-
-
 
 }
