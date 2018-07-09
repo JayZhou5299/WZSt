@@ -163,7 +163,7 @@
 					<!-- SITE LOGO -->
 					<div class="logo-wrapper">
 						<img src="img/logo.png"
-							alt="GFashion - Responsive e-commerce HTML Template" /> </a>
+							alt="GFashion - Responsive e-commerce HTML Template" /> 
 					</div>
 					<!-- // SITE LOGO -->
 					<!-- SITE NAVIGATION MENU -->
@@ -211,8 +211,8 @@
 									<div class="Cadress">
 										<div class="add_mi">
 											<input type="radio" value="新增收货地址1" name="address" />
-											<p style="border-bottom: 1px dashed #ccc; line-height: 28px;">浙江杭州(爸爸收)</p>
-											<p>萧山 北干 明怡花苑53幢3单元 13735683918</p>
+											<p style="border-bottom: 1px dashed #ccc; line-height: 28px;">${CosAddress}</p>
+<!-- 											<p>萧山 北干 明怡花苑53幢3单元 13735683918</p> -->
 										</div>
 
 										<br>
@@ -227,7 +227,6 @@
 
 
 								<div class="panel-body">
-									<form class="form-horizontal" role="form" action="cosaddress/add.do" method="post">
 										<div class="row">
 											<div class="col-xs-12 col-sm-12 col-md-6">
 												<div class="form-group stylish-input">
@@ -348,7 +347,6 @@
 								</div>
 								<div class="space20 clearfix"></div>
 								<button class="btn btn-primary">继续</button>
-								</form>
 							</div>
 						</div>
 					</div>
@@ -368,21 +366,25 @@
 										<table class="shop-summary">
 											<tr>
 												<th>商品总价:</th>
-												<td>$1170.00</td>
+												<td>${sum}</td>
 											</tr>
 											<tr>
-												<th>积分抵扣 (-2.00)</th>
-												<td>$2.00</td>
+												<th>积分抵扣</th>
+												<td>${Integ}</td>
 											</tr>
 											<tr class="total">
 												<th>总价:</th>
-												<td>$1168.00</td>
+												<td>${sum - Integ}</td>
 											</tr>
 											<tr>
-												<th><a href="order_suc.jsp"
-													class="btn btn-default btn-round uppercase">结 算</a></th>
-												<td><a href="products.jsp"
-													class="btn btn-primary btn-round uppercase">继续购物</a></td>
+												<th>
+												<form action="order/add.do" method="post">
+													<input type="hidden"  name="price" value="${sum}"> 
+													<input type="hidden"  name="cut" value="${Integ}">
+												<input type="submit" value="结算"
+													class="btn btn-default btn-round uppercase">
+												</form>
+												</th>
 											</tr>
 										</table>
 									</div>

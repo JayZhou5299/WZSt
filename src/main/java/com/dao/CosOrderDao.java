@@ -2,6 +2,8 @@ package com.dao;
 
 import java.util.List;
 
+import org.junit.validator.PublicClassValidator;
+
 import com.model.CosOrder;
 
 public interface CosOrderDao {
@@ -16,5 +18,7 @@ public interface CosOrderDao {
 
 	// 将修改后的order对象保存到数据库中
 	public void updateorder(CosOrder order);
+	
+	public List<CosOrder> ListcosOrder();
 
 }

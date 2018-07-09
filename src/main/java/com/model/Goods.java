@@ -9,8 +9,8 @@ public class Goods {
 	private String goods_class;
 	private String goods_pic;
 	private int goods_price;
-	private Date create_time;
-	private Date modified_time;
+	private String create_time;
+	private String modified_time;
 	private String goods_unit;
 	private int goods_hot = 0;
 	private int goods_num;
@@ -60,19 +60,20 @@ public class Goods {
 		this.goods_price = goods_price;
 	}
 
-	public Date getCreate_time() {
+
+	public String getCreate_time() {
 		return create_time;
 	}
 
-	public void setCreate_time(Date create_time) {
+	public void setCreate_time(String create_time) {
 		this.create_time = create_time;
 	}
 
-	public Date getModified_time() {
+	public String getModified_time() {
 		return modified_time;
 	}
 
-	public void setModified_time(Date modified_time) {
+	public void setModified_time(String modified_time) {
 		this.modified_time = modified_time;
 	}
 

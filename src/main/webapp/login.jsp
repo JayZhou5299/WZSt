@@ -138,7 +138,7 @@
 			<div style="width: 400px; float: right;">
 				<h3>已注册用户：</h3>
 				<h4>如果您已有微妆账户，请登录</h4>
-				<form action="user/login.do">
+				<form action="user/login.do" method="post">
 					<div style="margin-bottom: 20px">
 						<span>电子邮件：</span> <input type="text" name="email">
 					</div>

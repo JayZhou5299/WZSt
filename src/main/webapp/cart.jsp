@@ -101,24 +101,7 @@
 										</form>
 									</div> <!-- // SEARCH BOX -->
 								</li>
-								<li data-toggle="sub-header" data-target="#sub-social">
-									<!-- SOCIAL ICONS --> <a href="javascript:void(0);"
-									id="social-icons"> <i class="iconfont-share round-icon"></i>
-								</a>
-
-									<div id="sub-social" class="sub-header">
-										<ul class="social-list unstyled text-center">
-											<li><a href="#"><i
-													class="iconfont-facebook round-icon"></i></a></li>
-											<li><a href="#"><i
-													class="iconfont-twitter round-icon"></i></a></li>
-											<li><a href="#"><i
-													class="iconfont-google-plus round-icon"></i></a></li>
-											<li><a href="#"><i
-													class="iconfont-pinterest round-icon"></i></a></li>
-											<li><a href="#"><i class="iconfont-rss round-icon"></i></a></li>
-										</ul>
-									</div> <!-- // SOCIAL ICONS -->
+								
 								</li>
 								<li data-toggle="sub-header" data-target="#sub-cart">
 									<!-- SHOPPING CART --> <a href="javascript:void(0);"
@@ -208,8 +191,14 @@
 					<tbody>
 
 						<c:forEach items="${cartlist}" var="cp" varStatus="stat">
-
-
+								<form action="cart/update.do" method="post">
+<%-- 									<input type="hidden" name="goods_image" value="${cp.goods_image}"> --%>
+<%-- 									<input type="hidden" name="goods_name" value="${cp.goods_name}"> --%>
+<%-- 									<input type="hidden" name="goods_price" value="${cp.goods_price}"> --%>
+<%-- 									<input type="hidden" name="user_id" value="${User.user_id}"> --%>
+									<input type="hidden" name="goods_num" value="${cp.goods_num}">
+<%-- 									<input type="hidden" name="goods_id" value="${cp.goods_id}"> --%>
+								</form>
 							<tr id="${stat.count}">
 								<td><img src="${cp.goods_image}" width="80px" height="80px" />${cp.goods_name}
 								</td>
@@ -226,15 +215,51 @@
 										</button>
 									</div>
 								</td>
+
 								<td id="add_total"><span>${cp.goods_price*cp.goods_num}</span></td>
-								<td><button type="button" class="close" aria-hidden="true">x</button></td>
+								<td><button type="submit" aria-hidden="true" onclick="deleteCart(this)" name="${cp.cart_id}">X</button></td>
+									<script>
+										function deleteCart(btn){
+											
+											$(btn).parents("tr").remove();
+
+											var jian = $(btn).parents("tr").find("span")
+													.text();
+											var sum_total = parseFloat(document
+													.getElementById("sum_total").innerHTML);
+											document.getElementById("sum_total").innerText = (sum_total - jian)
+													.toFixed(1);
+											
+											var cartId=$(btn).attr("name"); 
+											
+									            $.ajax({ 
+													url:"cart/delete.do",
+													type:"post",
+													async:false,
+													dataType:"json",
+													data:{"cartId":cartId},
+													success:function (data) {
+														alert(data); 
+													}, 
+									                error:function(){
+									                	alert("wrong!");
+									                },
+												});			
+										}
+									</script>
+<%-- 								href="cart/delete.do?cart_id=${cp.cart_id}" --%>
+								
+								<td>
+<!-- 								<form action="cart/delete.do"> -->
+<%-- 									<input type="hidden" name="cart_id" value="${cp.cart_id}"> --%>
+<!-- 									 -->
+<!-- 								</form> -->
+								</td>
 							</tr>
+							
 						</c:forEach>
 					</tbody>
 				</table>
-
-
-
 
 
 				<c:forEach items="${cartlist}" var="c">
@@ -243,18 +268,19 @@
 				</c:forEach>
 
 
-
-
 				<div class="shopcart-total pull-right clearfix">
+				
+				<form action="cart/end.do" method="post"> 
 					<div class="cart-total text-bold m-b-lg clearfix">
 						<span class="pull-left">总价:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span 
 							id="sum_total">${sum}</span>
+							<input type="hidden" name = "sum" value="${sum}">
+<%-- 							<input type="hidden" name = "user_id" value="${User.user_id}"> --%>
 					</div>
 					<div class="text-center">
-
-						<a href="Order.jsp"> <input type="button"
-							class="btn btn-primary uppercase" value="结账"></input></a>
+						<input type="submit" class="btn btn-primary uppercase" value="结账"></input>
 					</div>
+					</form>
 				</div>
 
 			</div>
@@ -269,14 +295,14 @@
 						.html();
 				var single_price = parseFloat(i);
 				$(ele.parentNode.parentNode.parentNode).find("span").html(
-						(single_price + add_price).toFixed(2));
+						(single_price + add_price).toFixed(1));
 
 				var sum_total = parseFloat(document.getElementById("sum_total").innerHTML);
 // 				alert(sum_total + "    " + single_price);
 // 				alert((sum_total + single_price).toFixed(2));
 
 // 				alert(document.getElementById("sum_total").innerText+"hyz");
-				document.getElementById("sum_total").innerText = (sum_total + single_price).toFixed(2);
+				document.getElementById("sum_total").innerText = (sum_total + single_price).toFixed(1);
 					
 			}
 
@@ -287,47 +313,47 @@
 				var i = $(ele.parentNode.parentNode.parentNode).find("strong")
 						.html();
 				var single_price = parseFloat(i);
-				if (add_price == "0.00") {
+				if (add_price ==single_price) {
 
 					$(ele.parentNode.parentNode.parentNode).find("span").html(
-							"0.00");
+							single_price.toFixed(1));
 				} else {
 					$(ele.parentNode.parentNode.parentNode).find("span").html(
-							(add_price - single_price).toFixed(2));
+							(add_price - single_price).toFixed(1));
 					var sum_total = parseFloat(document
 							.getElementById("sum_total").innerHTML);
 					document.getElementById("sum_total").innerText = (sum_total - single_price)
-							.toFixed(2);
+							.toFixed(1);
 				}
 			}
 			$(".close")
 					.click(
 							function() {
-								$(this).parents("tr").remove();
+// 								$(this).parents("tr").remove();
 
-								var jian = $(this).parents("tr").find("span")
-										.text();
-								var sum_total = parseFloat(document
-										.getElementById("sum_total").innerHTML);
-								document.getElementById("sum_total").innerText = (sum_total - jian)
-										.toFixed(2);
+// 								var jian = $(this).parents("tr").find("span")
+// 										.text();
+// 								var sum_total = parseFloat(document
+// 										.getElementById("sum_total").innerHTML);
+// 								document.getElementById("sum_total").innerText = (sum_total - jian)
+// 										.toFixed(1);
 							})
 
 			$(".add").click(function() {
 // 				alert($(this).prev().val(parseFloat($(this).prev().val()) + 1));
 // 				alert($(this).prev().val());
-				var num = parseInt($(this).prev().val()) + 2;
+				var num = parseInt($(this).prev().val()) + 1;
 // 				alert(num);
 // 				alert(num);
 				$(this).prev().val(num);
 			});
 
 			$(".reduce").click(function() {
-				if ($(this).next().val() == "0") {
-					alert("不能减了，哥");
-					$(this).next().val(0);
+				if ($(this).next().val() == "1") {
+					alert("不能减了，哥，不想要直接x掉");
+					$(this).next().val(1);
 				} else
-					$(this).next().val(parseFloat($(this).next().val()));
+					$(this).next().val(parseFloat($(this).next().val())-1);
 			});
 		</script> <!-- RELATED PRODUCTS -->
 		<section class="section visible-items-4">

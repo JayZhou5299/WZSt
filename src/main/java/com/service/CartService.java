@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.model.Cart;
 import com.model.Goods;
+import com.model.User;
 
 public interface CartService {
 	// 列出用户的userid对应的购物车信息记录
@@ -16,7 +17,7 @@ public interface CartService {
 	public void deleteCart(int cart_id);
 
 	// 更新购物车信息
-	public String UpdateCart(int cart_id);
+	public void UpdateCart(Cart cart);
 
 	// 添加购物车信息
 	public void addCart();

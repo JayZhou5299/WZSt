@@ -3,12 +3,13 @@ package com.model;
 import java.sql.Date;
 
 public class CosOrder {
+	private int order_id;
 	private int user_id;
-	private int order_price;
-	private int order_cut;
+	private double order_price;
+	private double order_cut;
 	private int order_deliv;
 	private int order_state;
-	private Date order_date;
+	private String order_date;
 
 	public int getUser_id() {
 		return user_id;
@@ -18,19 +19,31 @@ public class CosOrder {
 		this.user_id = user_id;
 	}
 
-	public int getOrder_price() {
+	
+	
+	
+	
+	public int getOrder_id() {
+		return order_id;
+	}
+
+	public void setOrder_id(int order_id) {
+		this.order_id = order_id;
+	}
+
+	public double getOrder_price() {
 		return order_price;
 	}
 
-	public void setOrder_price(int order_price) {
+	public void setOrder_price(double order_price) {
 		this.order_price = order_price;
 	}
 
-	public int getOrder_cut() {
+	public double getOrder_cut() {
 		return order_cut;
 	}
 
-	public void setOrder_cut(int order_cut) {
+	public void setOrder_cut(double order_cut) {
 		this.order_cut = order_cut;
 	}
 
@@ -50,11 +63,11 @@ public class CosOrder {
 		this.order_state = order_state;
 	}
 
-	public Date getOrder_date() {
+	public String getOrder_date() {
 		return order_date;
 	}
 
-	public void setOrder_date(Date order_date) {
+	public void setOrder_date(String order_date) {
 		this.order_date = order_date;
 	}
 

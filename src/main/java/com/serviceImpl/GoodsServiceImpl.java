@@ -21,7 +21,7 @@ public class GoodsServiceImpl implements  GoodsService{
 	}
 
 	public void deleteGoods(int id) {
-		// TODO Auto-generated method stub
+		goodsDao.deleteGoodsById(id);
 		
 	}
 
@@ -40,8 +40,7 @@ public class GoodsServiceImpl implements  GoodsService{
 	}
 
 	public void updateGoods(Goods goods) {
-		// TODO Auto-generated method stub
-		
+		goodsDao.updateGoods(goods);
 	}
 
 	public List<Goods> ListallGoods() {
@@ -53,6 +52,10 @@ public class GoodsServiceImpl implements  GoodsService{
 		List<Goods> list = goodsDao.SearchGoodsByclass(smal_class);
 		System.out.println(list.get(0).getGoods_detail()+" 123123123");
 		return list;
+	}
+
+	public Goods getGoodsById(int goodsid) {
+		return goodsDao.getGoodsById(goodsid);
 	}
 
 }

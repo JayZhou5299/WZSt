@@ -15,4 +15,6 @@ public interface CartDao {
 	// 根据购物信息id删除购物车信息
 	public void deleteCartByid(int cartid);
 
+	public void updateCartByid(Cart cart);
+	
 }

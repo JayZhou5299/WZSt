@@ -81,27 +81,9 @@
 									</form>
 								</div> <!-- // SEARCH BOX -->
 							</li>
-							<li data-toggle="sub-header" data-target="#sub-cart">
-								<!-- SHOPPING CART --> <a href="javascript:void(0);"
-								id="total-cart"> <i
-									class="iconfont-shopping-cart round-icon"></i>
-							</a>
-								<div id="sub-cart" class="sub-header">
-									<div class="cart-header">
-										<span>你的购物车目前为空</span> <small><a href="cart.jsp">查看全部</a></small>
-									</div>
-									<ul class="cart-items product-medialist unstyled clearfix"></ul>
-									<div class="cart-footer">
-										<div class="cart-total clearfix">
-											<span class="pull-left uppercase">总价</span> <span
-												class="pull-right total">￥ 0</span>
-										</div>
-										<div class="text-right">
-											<a href="cart.jsp"
-												class="btn btn-default btn-round view-cart">查看购物车</a>
-										</div>
-									</div>
-								</div> <!-- // SHOPPING CART -->
+							<li><a href="cart.jsp" id="total-cart"> <i
+										class="iconfont-shopping-cart round-icon"></i>
+								</a></li>
 							</li>
 						</ul>
 					</div>

@@ -5,6 +5,8 @@
 	<select id="getcartByuserid" parameterType="int" resultType="com.model.Cart">
 		select * from cart where User_Id = #{user_id};
 	</select>
+	
+	
 
 	<insert id="saveCart" parameterType="com.model.Cart">
 		insert into cart
@@ -16,5 +18,9 @@
 	<delete id="deleteCartByid" parameterType="int">
 		delete from cart where Cart_Id = #{cart_id};
 	</delete>
+
+	<update id="updateCartByid" parameterType="com.model.Cart">
+		update cart set Goods_Num = #{goods_num} where Cart_Id = #{cart_id}
+	</update>
 
 </mapper>

@@ -1,10 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@  taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%
+	String path = request.getContextPath();
+	// 获得项目完全路径（假设你的项目叫MyApp，那么获得到的地址就是http://localhost:8080/MyApp/）: 
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%> 
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<base href=" <%=basePath%>">
 	<meta charset="UTF-8" />
 	<title>订单成功</title>
 	<meta name="description" content=""/>
@@ -255,12 +263,12 @@
 				<p id="text">您的订单已提交成功！</p>
 		</div>
         <div class="center">
-      			<p id="text">订单号：########</p>
-      			<p id="text">订单金额：<span class="pay-total">￥#</span></p>
-				<p id="text">积分抵扣：<span class="pay-total">￥#</span></p>
-                <p id="text">应付金额：：<span class="pay-total">￥#</span></p>
-                <p id="text">账户余额：：<span class="pay-total">￥#</span></p>
-                <p id="text">配送：潘骏杰<span class="line">/</span>159****6437<span class="line">/</span>江苏,无锡市,北塘区 民丰西苑82号202室<span class="line"></p>
+      			<p id="text">订单号：${CosOrder.order_deliv}</p>
+      			<p id="text">订单金额：<span class="pay-total">${CosOrder.order_price}</span></p>
+				<p id="text">积分抵扣：<span class="pay-total">${CosOrder.order_cut}</span></p>
+                <p id="text">应付金额：<span class="pay-total">${CosOrder.order_price - CosOrder.order_cut}</span></p>
+                <p id="text">账户余额：<span class="pay-total">${balance}</span></p>
+                <p id="text">配送：潘骏杰<span class="line">/</span><span class="line">/</span>江苏,无锡市,北塘区 民丰西苑82号202室<span class="line"></p>
         </div>
         
         <br><br><br><br><br><br>

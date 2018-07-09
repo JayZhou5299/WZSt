@@ -2,33 +2,44 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="com.dao.GoodsDao">
-		<select id="ListGoods" resultType="com.model.Goods">
-			select * from goods order by Goods_Hot desc limit 8
-		</select>
-		<insert id="saveGoods" parameterType="com.model.Goods">
-			insert into goods (Goods_Name,Big_Class,Smal_Class,Goods_Class,Goods_Pic,Goods_Price,Create_Time,Modified_Time,Goods_Unit,Goods_Hot)
-			values (#{goods_name},#{big_class},#{smal_class},#{goods_class},#{goods_pic},#{goods_price},#{create_time},#{modified_time},#{goods_unit},#{goods_hot});
-		</insert>
-		
-		<delete id="deleteGoodsById" parameterType="int">
-			delete * from goods where Goods_Id = #{goods_id}
-		</delete>
-		
-          <select id="SearchGoods" parameterType="String" resultType="com.model.Goods">
-            select * from goods where Goods_Class = #{goods_class}
-           </select>
+	<select id="ListGoods" resultType="com.model.Goods">
+		select * from goods order by Goods_Hot desc limit 8
+	</select>
+	<insert id="saveGoods" parameterType="com.model.Goods">
+		insert into goods
+		(Goods_Name,Big_Class,Smal_Class,Goods_Class,Goods_Pic,Goods_Price,Create_Time,Modified_Time,Goods_Unit,Goods_Hot)
+		values
+		(#{goods_name},#{big_class},#{smal_class},#{goods_class},#{goods_pic},#{goods_price},#{create_time},#{modified_time},#{goods_unit},#{goods_hot});
+	</insert>
 
-            <select id="SearchGoodsByclass" parameterType="int" resultType="com.model.Goods">
-           		select * from goods where Smal_Class = #{smal_class}
-           </select>
-           
-           <select id="getGoodsById" parameterType="int" resultType="com.model.Goods">
-              select * from goods where Goods_Id = #{goods_id}
-           </select>
-           
-           <select id="ListallGoods" resultType="com.model.Goods">
-              select * from goods 
-           </select>
-           
-           
+	<delete id="deleteGoodsById" parameterType="int">
+		delete  from goods where Goods_Id = #{goods_id}
+	</delete>
+
+	<select id="SearchGoods" parameterType="String" resultType="com.model.Goods">
+		select * from goods where Goods_Class = #{goods_class}
+	</select>
+
+	<select id="SearchGoodsByclass" parameterType="int" resultType="com.model.Goods">
+		select * from goods where Smal_Class = #{smal_class}
+	</select>
+
+	<select id="getGoodsById" parameterType="int" resultType="com.model.Goods">
+		select * from goods where Goods_Id = #{goods_id}
+	</select>
+
+	<select id="ListallGoods" resultType="com.model.Goods">
+		select * from goods
+	</select>
+
+	<update id="updateGoods" parameterType="com.model.Goods">
+		update goods set Goods_Name =
+		#{goods_name},Goods_Class = #{goods_class},Goods_Pic =
+		#{goods_pic}, Goods_Price = #{goods_price}, Modified_Time = #{modified_time} ,Goods_num = #{goods_num},Goods_detail=#{goods_detail}
+		where
+		Goods_Id =
+		#{goods_id}
+	</update>
+
+
 </mapper>

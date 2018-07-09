@@ -18,4 +18,6 @@ public interface GoodsDao {
 		public Goods getGoodsById(int id);
 	//返回所有的商品
 		public List<Goods> ListallGoods();
+		
+		public void updateGoods(Goods goods);
 }

@@ -64,7 +64,6 @@
 		overflow:scroll !important;
 		overflow-x:visible !important;
 		overflow-y:visible !important;
-		height:auto !important;
 	}
 </style>
 </head>
@@ -102,47 +101,9 @@
 											</div>
 										</form>
 									</div> <!-- // SEARCH BOX -->
-							</li>
-							<li data-toggle="sub-header" data-target="#sub-social">
-								<!-- SOCIAL ICONS -->
-
-
-								<div id="sub-social" class="sub-header">
-									<ul class="social-list unstyled text-center">
-										<li><a href="#"><i
-												class="iconfont-facebook round-icon"></i></a></li>
-										<li><a href="#"><i
-												class="iconfont-twitter round-icon"></i></a></li>
-										<li><a href="#"><i
-												class="iconfont-google-plus round-icon"></i></a></li>
-										<li><a href="#"><i
-												class="iconfont-pinterest round-icon"></i></a></li>
-										<li><a href="#"><i class="iconfont-rss round-icon"></i></a></li>
-									</ul>
-								</div> <!-- // SOCIAL ICONS -->
-							</li>
-							<li data-toggle="sub-header" data-target="#sub-cart">
-								<!-- SHOPPING CART --> <a href="javascript:void(0);"
-								id="total-cart"> <i
-									class="iconfont-shopping-cart round-icon"></i>
-							</a>
-
-								<div id="sub-cart" class="sub-header">
-									<div class="cart-header">
-										<span>你的购物车目前为空.</span> <small><a href="cart.html">(查看全部)</a></small>
-									</div>
-									<ul class="cart-items product-medialist unstyled clearfix"></ul>
-									<div class="cart-footer">
-										<div class="cart-total clearfix">
-											<span class="pull-left uppercase">总价</span> <span
-												class="pull-right total">$ 0</span>
-										</div>
-										<div class="text-right">
-											<a href="cart.jsp"
-												class="btn btn-default btn-round view-cart">查看购物车</a>
-										</div>
-									</div>
-								</div> <!-- // SHOPPING CART -->
+							<li><a href="cart.jsp" id="total-cart"> <i
+										class="iconfont-shopping-cart round-icon"></i>
+								</a></li>
 							</li>
 						</ul>
 					</div>
@@ -397,8 +358,9 @@
 									</script>
 
 
-						<c:forEach items="${Notes}" var="note">
-						<div class="product" data-product-id="1">
+						<c:forEach items="${Notes}" var="note" varStatus="stat">
+						<div class="product" data-product-id="${stat.count}">
+
 							<div class="entry-media">
 								<img data-src="${note.note_pic}" alt=""
 									class="lazyLoad thumb" />

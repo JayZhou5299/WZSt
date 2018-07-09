@@ -27,5 +27,8 @@ public interface GoodsService {
 
 	// 根据用户的购买记录推荐相关感兴趣的商品
 	public List<Goods> interestedGoodsByUser(int userid);
+	
+	public Goods getGoodsById(int goodsid);
+	
 
 }

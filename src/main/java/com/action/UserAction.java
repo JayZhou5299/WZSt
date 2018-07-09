@@ -1,5 +1,7 @@
 package com.action;
+import com.model.Cart;
 import com.model.User;
+import com.serviceImpl.CartServiceImpl;
 import com.serviceImpl.CosAddressServiceImpl;
 import com.serviceImpl.NotesServiceImpl;
 import com.serviceImpl.UserServiceImpl;
@@ -27,6 +29,9 @@ public class UserAction {
 	
 	@Resource
 	NotesServiceImpl notesServiceImpl;
+	
+	@Resource
+	CartServiceImpl cartServiceImpl;
 	
 	@Resource
 	CosAddressServiceImpl cosAddressServiceImpl;
@@ -69,10 +74,21 @@ public class UserAction {
 			session.setAttribute("User", user);
 //			System.out.println(user.getUser_id());
 			mav = new ModelAndView("index",data);
+//			List<Cart> cartlist = cartServiceImpl.listcart(user.getUser_id());
+//			System.out.println(cartlist);
+//			session.setAttribute("cartlist", cartlist);
+//			System.out.println(cartlist.get(1).getGoods_name()+"7.9");
+			
+			
+			
 		}
 		else{
 			mav = new ModelAndView("login");
 		}
+		
+		
+		
+		
 		
 //		System.out.println(user.getUser_id());
 //		List<Notes> list = notesServiceImpl.SearchNotesByUser(user.getUser_id());

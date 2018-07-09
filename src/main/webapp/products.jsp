@@ -42,7 +42,7 @@
 <link rel="stylesheet" href="css/minified.css">
 <!-- // GENERAL CSS FILES -->
 
-	<script src="js/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 
 <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>');</script>
 <script src="js/modernizr.min.js"></script>
@@ -98,30 +98,9 @@
 									</div> <!-- // SEARCH BOX -->
 								</li>
 
-								<li data-toggle="sub-header" data-target="#sub-cart">
-									<!-- SHOPPING CART --> <a href="javascript:void(0);"
-									id="total-cart"> <i
+								<li><a href="cart/listUserCart.do" id="total-cart"> <i
 										class="iconfont-shopping-cart round-icon"></i>
-								</a>
-
-									<div id="sub-cart" class="sub-header">
-										<div class="cart-header">
-											<span>你的购物车目前为空.</span> <small><a href="cart.jsp">(See
-													All)</a></small>
-										</div>
-										<ul class="cart-items product-medialist unstyled clearfix"></ul>
-										<div class="cart-footer">
-											<div class="cart-total clearfix">
-												<span class="pull-left uppercase">总价</span> <span
-													class="pull-right total">$ 0</span>
-											</div>
-											<div class="text-right">
-												<a href="cart.jsp"
-													class="btn btn-default btn-round view-cart">查看购物车</a>
-											</div>
-										</div>
-									</div> <!-- // SHOPPING CART -->
-								</li>
+								</a></li>
 							</ul>
 						</div>
 					</div>
@@ -172,7 +151,6 @@
 						<nav id="site-menu" role="navigation">
 							<ul class="main-menu hidden-sm hidden-xs">
 								<li><a href="index.jsp">主页</a></li>
-
 								<li><a href="note.jsp">笔记</a></li>
 								<li><a href="products.jsp">商城</a></li>
 								<li><a href="userInfo.jsp">我的</a></li>
@@ -217,18 +195,18 @@
 								</header>
 								<div class="side-section-content">
 									<ul id="parent" class="vmenu unstyled">
-										<li><input type="text" id="check-men" class="prettyCheckable"
-											data-label="护肤" data-labelPosition="right" value="护肤" />
-										<ul>
-											<li>面膜</li>
-											<li>化妆水</li>
-											<li>洁面</li>
-											<li>精华</li>
-											<li>乳液</li>
-											<li>面霜</li>
-											<li>眼霜</li>
-										</ul>
-										</li>
+										<li><input type="text" id="check-men"
+											class="prettyCheckable" data-label="护肤"
+											data-labelPosition="right" value="护肤" />
+											<ul>
+												<li>面膜</li>
+												<li>化妆水</li>
+												<li>洁面</li>
+												<li>精华</li>
+												<li>乳液</li>
+												<li>面霜</li>
+												<li>眼霜</li>
+											</ul></li>
 
 										<li><input type="text" id="check-women"
 											class="prettyCheckable" data-label="彩妆"
@@ -241,8 +219,7 @@
 												<li>眼影</li>
 												<li>睫毛膏</li>
 												<li>唇彩</li>
-											</ul>
-										</li>
+											</ul></li>
 
 
 										<li><input type="text" id="check-beauty"
@@ -252,9 +229,8 @@
 												<li>女士香水</li>
 												<li>男士香水</li>
 												<li>中性香水</li>
-											</ul>
-										</li>
-										
+											</ul></li>
+
 										<li><input type="text" id="check-best"
 											class="prettyCheckable" data-label="个人护理"
 											data-labelPosition="right" value="个人护理" />
@@ -263,9 +239,8 @@
 												<li>护发</li>
 												<li>沐浴</li>
 												<li>发膜</li>
-											</ul>
-										</li>
-										
+											</ul></li>
+
 										<li><input type="text" id="check-new"
 											class="prettyCheckable" data-label="男士专区"
 											data-labelPosition="right" value="男士专区" />
@@ -275,11 +250,10 @@
 												<li>乳液</li>
 												<li>隔离</li>
 												<li>精华</li>
-											</ul>
-										</li>
+											</ul></li>
 									</ul>
 								</div>
-								
+
 								<script>
 									window.onload = function(){
 										var lis = document.getElementById("parent").getElementsByTagName("li");
@@ -307,7 +281,7 @@
 									    
 								
 								</script>
-								
+
 								<footer class="side-section-footer text-center hide">
 									<button type="button" id="btn-filter-cat"
 										class="btn btn-primary btn-round uppercase">清空选择</button>
@@ -400,8 +374,8 @@
 											<li><a class="round-icon" onclick="showLast()"
 												data-toggle="tooltip" data-title="上一页"><i
 													class="iconfont-angle-left"></i></a></li>
-											<li><a id="next" class="round-icon" 
-												onclick="showNext()" data-toggle="tooltip" data-title="下一页"><i
+											<li><a id="next" class="round-icon" onclick="showNext()"
+												data-toggle="tooltip" data-title="下一页"><i
 													class="iconfont-angle-right"></i></a></li>
 										</ul>
 									</div>
@@ -430,7 +404,7 @@
 									if (page > 0) {
 										function showLast() {
 											page -= 1;
-// 											alert(page);
+											// 											alert(page);
 											if (page != 0) {
 												$.ajax({
 															type : "POST",
@@ -460,7 +434,7 @@
 
 									function showNext() {
 										page += 1;
-// 										alert(page);
+										// 										alert(page);
 										$.ajax({
 													type : "POST",
 													async : true, //同步请求
@@ -491,30 +465,33 @@
 
 										<div class="product " data-product-id="1"
 											style="visibility: visible; opacity: 1;">
-											
-											
+
+
 											<div class="entry-media">
 												<img alt="" class="lazyLoad thumb" src="${pro.goods_pic}">
 												<div class="hover">
-												<form action="cart/add.do" method="post">
-													<input type="hidden" name="goods_name" value="${pro.goods_name}">
-													<input type="hidden" name="goods_pic" value="${pro.goods_pic}">
-													<input type="hidden" name="goods_price" value="${pro.goods_price}">
-													<input type="hidden" name="goods_id" value="${pro.goods_id}">													
-													<a href="" class="entry-url"></a>
-													<ul class="icons unstyled">
-														<li>
-															<div class="circle ribbon ribbon-sale">Sale</div>
-														</li>
-														<li><a href="images/cz/9c.jpg" class="circle"
-															data-toggle="lightbox"><i class="iconfont-search"></i></a></li>
-														<li><button type="submit" class="circle"><i
-																class="iconfont-shopping-cart"></i></button></li>
-													</ul>
+													<form action="cart/add.do" method="post">
+														<input type="hidden" name="goods_name"
+															value="${pro.goods_name}"> <input type="hidden"
+															name="goods_pic" value="${pro.goods_pic}"> <input
+															type="hidden" name="goods_price"
+															value="${pro.goods_price}"> <input type="hidden"
+															name="goods_id" value="${pro.goods_id}"> <a
+															href="" class="entry-url"></a>
+														<ul class="icons unstyled">
+															<li>
+																<div class="circle ribbon ribbon-sale">Sale</div>
+															</li>
+															<li><a href="images/cz/9c.jpg" class="circle"
+																data-toggle="lightbox"><i class="iconfont-search"></i></a></li>
+															<li><button type="submit" class="circle">
+																	<i class="iconfont-shopping-cart"></i>
+																</button></li>
+														</ul>
 													</form>
 												</div>
 											</div>
-											
+
 											<div class="entry-main">
 												<h5 class="entry-title">
 													<a href="">${pro.goods_name}</a>
@@ -530,7 +507,7 @@
 											</div>
 										</div>
 									</div>
-									
+
 								</c:forEach>
 
 
@@ -659,15 +636,21 @@
 	<!-- // Essential Javascripts -->
 
 	<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script',
+				'../../../www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-27646173-3', 'themina.net');
-  ga('send', 'pageview');
-
-</script>
+		ga('create', 'UA-27646173-3', 'themina.net');
+		ga('send', 'pageview');
+	</script>
 	<!-- Particular Page Javascripts -->
 	<script src="js/jquery.nouislider.js"></script>
 	<script src="js/jquery.isotope.min.js"></script>

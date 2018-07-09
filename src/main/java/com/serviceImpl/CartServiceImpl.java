@@ -22,13 +22,12 @@ public class CartServiceImpl implements CartService {
 	}
 
 	public void deleteCart(int cart_id) {
-		// TODO Auto-generated method stub
+		cartDao.deleteCartByid(cart_id);
 
 	}
 
-	public String UpdateCart(int cart_id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void UpdateCart(Cart cart) {	
+		cartDao.updateCartByid(cart);
 	}
 
 	public void addCart() {
