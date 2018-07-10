@@ -17,7 +17,7 @@ public interface CosOrderDao {
 	public void saveorder(CosOrder order);
 
 	// 将修改后的order对象保存到数据库中
-	public void updateorder(CosOrder order);
+	public void updateorder(int order_id);
 	
 	public List<CosOrder> ListcosOrder();
 

@@ -15,44 +15,46 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<div class="main" >
-	
+
+	<div class="main">
+
 		<c:forEach items="${goodsList}" var="goods">
 			<div id="${goods.goods_id}" class="sub1"
-				style="overflow-y:auto; overflow-x:auto;width: 300px; height: 400px; float: left;">
-				<ul >
-					<li>商品名称:  ${goods.goods_name}</li>
+				style="overflow-y: auto; overflow-x: auto; width: 300px; height: 400px; float: left;">
+				<ul>
+					<li>商品名称: ${goods.goods_name}</li>
 					<br>
-					<li>商品类别:  ${goods.goods_class}</li>
+					<li>商品类别: ${goods.goods_class}</li>
 					<br>
-					<li>商品图片:  ${goods.goods_pic}</li>
+					<li>商品图片: ${goods.goods_pic}</li>
 					<br>
-					<li>商品价格:  ${goods.goods_price}</li>
+					<li>商品价格: ${goods.goods_price}</li>
 					<br>
-					<li>商品发布时间:  ${goods.create_time}</li>
+					<li>商品发布时间: ${goods.create_time}</li>
 					<br>
-					<li>商品单位:  ${goods.goods_unit}</li>
+					<li>商品单位: ${goods.goods_unit}</li>
 					<br>
-					<li>商品热度:  ${goods.goods_hot}</li>
+					<li>商品热度: ${goods.goods_hot}</li>
 					<br>
-					<li>商品库存:  ${goods.goods_num}</li>
+					<li>商品库存: ${goods.goods_num}</li>
 					<br>
-					</ul>
-						
-						<input type="button" value="修改" 
-						id="changeGoods" name="${goods.goods_id}" onclick="changeGoods(this)">
-						<input type="button" value="删除" 
-						id="deleteGoods" name="${goods.goods_id}" onclick="deleteGoods(this)">	
+					<li>商品描述: ${goods.goods_detail}</li>
+					<br>
+				</ul>
+
+				<input type="button" value="修改" id="changeGoods"
+					name="${goods.goods_id}" onclick="changeGoods(this)"> <input
+					type="button" value="删除" id="deleteGoods" name="${goods.goods_id}"
+					onclick="deleteGoods(this)">
 			</div>
 		</c:forEach>
-		<ul class="main-menu hidden-sm hidden-xs" >
+		<ul class="main-menu hidden-sm hidden-xs">
 			<li><a onclick="addGoods()">添加商品</a></li>
 			<li><a onclick="showNext()">下一批</a></li>
 		</ul>
-		
+
 
 	</div>
-						
+
 </body>
 </html>

@@ -46,14 +46,14 @@ public class GoodsAction {
 	
 	@RequestMapping("update.do")
 	public ModelAndView Update(Goods goods){
+		System.out.println("2018");
 		System.out.println(goods.getGoods_detail()+" "+goods.getGoods_name()+"start"+"  "+goods.getGoods_num());
 		Date currentTime = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String modified_time = formatter.format(currentTime);
 		goods.setModified_time(modified_time);
 		goodsServiceImpl.updateGoods(goods);
-//		System.out.println(goods);
-		ModelAndView mav = new ModelAndView("manager3");
+		ModelAndView mav = new ModelAndView("goodsForm");
 		return mav;
 	}
 	

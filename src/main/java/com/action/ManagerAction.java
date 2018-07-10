@@ -53,7 +53,7 @@ public class ManagerAction {
 			session.setAttribute("manager",man);
 		}
 		else{
-			mav.setViewName("商品经理");
+			mav.setViewName("manager3");
 			session.setAttribute("manager",man);
 		}
 		return mav;

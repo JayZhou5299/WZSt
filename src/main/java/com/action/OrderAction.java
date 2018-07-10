@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.model.CosOrder;
@@ -30,6 +32,15 @@ public class OrderAction {
 		ModelAndView mav = new ModelAndView("orderManage");
 		mav.addObject("Order", list);
 		return mav;
+	}
+	
+	@RequestMapping("dealOrder.do")
+	@ResponseBody
+	public String dealorder(HttpServletRequest request){
+		int order_id = Integer.parseInt(request.getParameter("orderId"));
+		cosOrderServiceImpl.updateorder(order_id);
+//		ModelAndView mav = new ModelAndView("");
+		return "处理成功";
 	}
 	
 

@@ -208,7 +208,7 @@
 					
 					<div class="side-section-content">
 						<h3></h3>
-						<form action="#" method="get">
+						<form action="manager/exit.do" method="get">
 						
 						<div class="form-group">
     						<label for="exampleInputEmail1"><h4>尊敬的${sessionScope.manager.man_name} ${sessionScope.manager.man_range}</br>您好</h4></label>		

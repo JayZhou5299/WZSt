@@ -5,9 +5,16 @@
 	int newPage = 1;
 	session.setAttribute("newPage", newPage);
 %>
+<%
+	String path = request.getContextPath();
+	// 获得项目完全路径（假设你的项目叫MyApp，那么获得到的地址就是http://localhost:8080/MyApp/）: 
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="noIE" lang="en-US">
 <head>
+<base href=" <%=basePath%>">
 <meta charset="UTF-8" />
 	<title>微妆笔记</title>
 	<meta name="description" content=""/>
@@ -149,7 +156,7 @@
 										<h3></h3>
 				<form action="#" method="get">
 						<div class="form-group">
-    						<label for="exampleInputEmail1"><h4>尊敬的${manager.man_name} ${manager.man_range}</br>您好</h4></label>		
+    						<label for="exampleInputEmail1"><h4>尊敬的${sessionScope.manager.man_name} ${manager.man_range}</br>您好</h4></label>		
   						</div>
   						
   						<div class="form-group">
@@ -157,7 +164,7 @@
   						</div>
   						
   						<div class="form-group">
-    						<label for="exampleInputPassword1"><h4>您的id为</br>${manager.man_id}</h4></label>
+    						<label for="exampleInputPassword1"><h4>您的id为</br>${sessionScope.manager.man_id}</h4></label>
   						</div>
   						
   						
@@ -237,6 +244,8 @@
 								function addGoods(){
 									window.open ('goodsForm.jsp','添加商品','height=450px,width=500px,top=300,left=425,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no');
 								}
+								
+								
 							</script>
 
 						  
@@ -264,14 +273,14 @@
 								
 								function dealOrder(btn){
 									
-									var cartId=$(btn).attr("name");
-									
+									var orderId=$(btn).attr("name");
+									$(btn).parent().prev().text("1");
  									 $.ajax({ 
-									url:"cart/dealOrder.do",
+									url:"order/dealOrder.do",
 									type:"post",
 									async:false,
 									dataType:"json",
-									data:{"cartId":cartId},
+									data:{"orderId":orderId},
 									success:function (data) {
 										alert(data); 
 									}, 
@@ -280,6 +289,8 @@
 //						                },
 								});			
 								}
+								
+								
 							</script>
 							
 						</div>

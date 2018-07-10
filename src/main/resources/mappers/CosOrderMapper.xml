@@ -13,13 +13,13 @@
 		#{order_date_end}
 	</select>
 
-	<update id="updateorder" parameterType="com.model.CosOrder">
+	<update id="updateorder" parameterType="int">
 		update cos_order set
-		Order_State = #{order_state} where Order_Id=#{order_id};
+		Order_State = 1 where Order_Id=#{order_id};
 	</update>
 	
 	<select id="ListcosOrder" resultType="com.model.CosOrder">
-		select * from cos_order
+		select * from cos_order where Order_State = 0
 	</select>
 
 	<insert id="saveorder" parameterType="com.model.CosOrder">

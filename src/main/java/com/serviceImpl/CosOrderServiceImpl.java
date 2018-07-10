@@ -31,4 +31,8 @@ public class CosOrderServiceImpl implements CosOrderService {
 	public List<CosOrder> getOrder() {
 		return cosOrderDao.ListcosOrder();
 	}
+
+	public void updateorder(int order_id) {
+		cosOrderDao.updateorder(order_id);
+	}
 }

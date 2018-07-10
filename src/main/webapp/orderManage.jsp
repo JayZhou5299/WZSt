@@ -93,6 +93,7 @@
 					<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 					</tr>
 					 <c:forEach items="${Order}" var="order" >
+<!-- 					 <input type="hidden"> -->
 					 <tr>
 					 <td>${order.order_id}</td>
 					 <td>${order.order_price}</td>
