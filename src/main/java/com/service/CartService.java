@@ -24,5 +24,7 @@ public interface CartService {
 
 	// 清空购物车
 	public void deleteAll();
+	
+	public void setCartNum(int cartId,int num);
 
 }

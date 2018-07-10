@@ -23,7 +23,6 @@ public class CosAddressServiceImpl implements CosAddressService {
 
 	public void saveaddress(CosAddress cosaddress) {
 		cosAddressDao.saveCosAddress(cosaddress);
-		
 	}
 
 	public void deleteaddress(int addressid) {

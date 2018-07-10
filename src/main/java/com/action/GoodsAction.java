@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.model.Goods;
+import com.model.Notes;
 import com.serviceImpl.GoodsServiceImpl;
+import com.serviceImpl.NotesServiceImpl;
+import com.sun.xml.internal.ws.Closeable;
 
 import net.sf.json.JSONArray;
 
@@ -29,6 +32,22 @@ public class GoodsAction {
 	@Resource
 	GoodsServiceImpl goodsServiceImpl;
 
+	@Resource
+	NotesServiceImpl notesServiceImpl;
+	
+	@RequestMapping("Search.do")
+	public ModelAndView search(HttpServletRequest request){
+		String content = request.getParameter("content");
+		ModelAndView mav = new ModelAndView("products");
+//		List<Notes> noteslist = notesServiceImpl.SearchNotes(content);
+		List<Goods> goodslist = goodsServiceImpl.SearchGoods(content);
+//		System.out.println(noteslist.get(0).getNote_name()+"abcd");
+		System.out.println(goodslist.get(0).getGoods_name()+"abcde");
+		mav.addObject("products",goodslist);
+//		mav.addObject("notesList",noteslist);
+		return mav;
+	}
+	
 	@RequestMapping("delete.do")
 	@ResponseBody
 	public String delete(HttpServletRequest request) {
@@ -45,27 +64,55 @@ public class GoodsAction {
 	}
 	
 	@RequestMapping("update.do")
-	public ModelAndView Update(Goods goods){
+	@ResponseBody
+	public String Update(Goods goods){
+		int goods_id = goods.getGoods_id();
+		if(goods_id>0){
+			Date currentTime = new Date();
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			String modified_time = formatter.format(currentTime);
+			goods.setModified_time(modified_time);
+			goodsServiceImpl.updateGoods(goods);
+		}
+		else{
+			
+			goodsServiceImpl.saveGoods(goods);
+		}
+		
+		
+//		System.out.println("2018");
+//		System.out.println(goods.getGoods_detail()+" "+goods.getGoods_name()+"start"+"  "+goods.getGoods_num());
+		
+//		ModelAndView mav = new ModelAndView("manager3");
+		return "success";
+	}
+	
+	
+	@RequestMapping("add.do")
+	public ModelAndView add(Goods goods){
 		System.out.println("2018");
 		System.out.println(goods.getGoods_detail()+" "+goods.getGoods_name()+"start"+"  "+goods.getGoods_num());
-		Date currentTime = new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		String modified_time = formatter.format(currentTime);
-		goods.setModified_time(modified_time);
 		goodsServiceImpl.updateGoods(goods);
 		ModelAndView mav = new ModelAndView("goodsForm");
 		return mav;
 	}
 	
+	
 
 	@RequestMapping("tanchuForm.do")
 	public ModelAndView goodsForm(HttpServletRequest request, HttpSession session) {
 		String getId = request.getParameter("goods_id");
-		int id = Integer.parseInt(getId);
-		System.out.println(id);
-		Goods goods = goodsServiceImpl.getGoodsById(id);
-		System.out.println(goods);
+		Goods goods = null;
+		if(getId!=null){
+			int id = Integer.parseInt(getId);
+			goods = goodsServiceImpl.getGoodsById(id);
+			System.out.println(goods);	
+		}
+		else{
+			 goods = new Goods();
+		}
 		ModelAndView mav = new ModelAndView("goodsForm");
+//		System.out.println(id);
 		mav.addObject("oneGoods", goods);
 		return mav;
 	}

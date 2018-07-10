@@ -37,16 +37,28 @@
 					value="${oneGoods.goods_detail}"></li>
 				<br>
 			</ul>
-			<button type="button" onclick="closeHere()">启动</button>
-			<div style="display: none;">
-				<input type="submit" value="提交" id="changeGoods" name="changeGoods">
+<!-- 			<button type="button" >启动</button> -->
+			<div>
+				<input type="submit" value="提交" onclick="closeHere()">
 			</div>
 			<script>
 				function closeHere() {
-					document.updateGoods.changeGoods.click();
-					alert("提交成功！");
-					window.opener = "";
-					window.close();
+//   					var form = document.getElementById('updateGoods');
+//				document.updateGoods.changeGoods.click();
+				
+				$.ajax({
+								url : "update.do",
+								type : "post",
+								async : false,
+								success : function(data) {
+									
+									window.close();
+									
+								},
+								error : function() {
+									alert("wrong!");
+								},
+							});				  
 				}
 			</script>
 		</form>

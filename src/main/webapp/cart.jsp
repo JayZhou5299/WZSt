@@ -205,12 +205,11 @@
 								<td><strong>${cp.goods_price}</strong></td>
 								<td>
 									<div class="qty-btn-group">
-										<button type="button" class="reduce" onClick="f2(this);">
+										<button type="button" class="reduce" name="${cp.cart_id}" onClick="f2(this);">
 											<i class="iconfont-caret-down inline-middle"></i>
 										</button>
-										<input type="text" id="input_num" name="input_num" value="${cp.goods_num}"
-											readonly />
-										<button type="button" class="add" onClick="f1(this);">
+										<input type="text" id="input_num" name="input_num" value="${cp.goods_num}" />
+										<button type="button" class="add" name="${cp.cart_id}" onClick="f1(this);">
 											<i class="iconfont-caret-up inline-middle"></i>
 										</button>
 									</div>
@@ -274,7 +273,7 @@
 					<div class="cart-total text-bold m-b-lg clearfix">
 						<span class="pull-left">总价:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span 
 							id="sum_total">${sum}</span>
-							<input type="hidden" name = "sum" value="${sum}">
+							<input type="hidden" name = "sum" value="${sum}" id="sum">
 <%-- 							<input type="hidden" name = "user_id" value="${User.user_id}"> --%>
 					</div>
 					<div class="text-center">
@@ -282,7 +281,6 @@
 					</div>
 					</form>
 				</div>
-
 			</div>
 		</section>
 
@@ -303,7 +301,8 @@
 
 // 				alert(document.getElementById("sum_total").innerText+"hyz");
 				document.getElementById("sum_total").innerText = (sum_total + single_price).toFixed(1);
-					
+				document.getElementById("sum").value = (sum_total + single_price).toFixed(1);
+				
 			}
 
 			function f2(ele) {
@@ -325,6 +324,7 @@
 					document.getElementById("sum_total").innerText = (sum_total - single_price)
 							.toFixed(1);
 				}
+				
 			}
 			$(".close")
 					.click(
@@ -340,12 +340,27 @@
 							})
 
 			$(".add").click(function() {
-// 				alert($(this).prev().val(parseFloat($(this).prev().val()) + 1));
-// 				alert($(this).prev().val());
 				var num = parseInt($(this).prev().val()) + 1;
-// 				alert(num);
-// 				alert(num);
 				$(this).prev().val(num);
+				
+				var cartId=$(this).attr("name"); 
+				alert(num+"  "+cartId);
+				 $.ajax({ 
+						url:"cart/changeNum.do",
+						type:"post",
+						async:false,
+						dataType:"text",
+						data:{"inputNum":num,
+							  "cartId":cartId},
+						success:function (data) {
+							alert(data); 
+							document.getElementById("input_num").innerHTML = data;
+						}, 
+		                error:function(){
+		                	alert("wrong!");
+		                },
+					});		
+				
 			});
 
 			$(".reduce").click(function() {
@@ -353,7 +368,27 @@
 					alert("不能减了，哥，不想要直接x掉");
 					$(this).next().val(1);
 				} else
-					$(this).next().val(parseFloat($(this).next().val())-1);
+					$(this).next().val(parseInt($(this).next().val())-1);
+		
+				var num = parseInt($(this).next().val());
+				var cartId = $(this).attr("name"); 
+				alert(num+"  "+cartId);
+				 $.ajax({ 
+						url:"cart/changeNum.do",
+						type:"post",
+						async:false,
+						dataType:"text",
+						data:{"inputNum":num,
+							  "cartId":cartId},
+						success:function (data) {
+							alert(data); 
+							document.getElementById("input_num").innerHTML = data;
+						}, 
+		                error:function(){
+		                	alert("wrong!");
+		                },
+					});		
+			
 			});
 		</script> <!-- RELATED PRODUCTS -->
 		<section class="section visible-items-4">

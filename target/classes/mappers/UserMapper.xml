@@ -29,6 +29,11 @@
 	<select id="listallEmail" resultType="String">
 		select User_Email from user
 	</select>
+	
+<!-- 	<select id="listnotesByUserId" parameterType="int"  resultType="com.model.Notes"> -->
+<!-- 		select * from notes where User_Id = #{user_id} -->
+<!-- 	</select> -->
+	
 
 
 	<select id="getUserById" parameterType="int" resultType="com.model.User">

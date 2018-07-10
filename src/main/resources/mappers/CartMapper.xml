@@ -22,5 +22,11 @@
 	<update id="updateCartByid" parameterType="com.model.Cart">
 		update cart set Goods_Num = #{goods_num} where Cart_Id = #{cart_id}
 	</update>
+	
+<!-- 	<update id="setCartNum" parameterType="int"> -->
+<!-- 		update cart set Goods_Num = #{goods_num} where Cart_Id = #{cart_id} -->
+<!-- 	</update> -->
+	
+	
 
 </mapper>

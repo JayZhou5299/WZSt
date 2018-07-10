@@ -173,6 +173,7 @@
 						<li><a href="products.jsp">商城</a></li>
 						<li><a href="note.jsp">笔记</a></li>
 						<li><a href="userInfo.jsp">我的</a></li>
+<%-- 						<li>${CosAddress.recv_person}</li> --%>
 					</ul>
 					</nav>
 					<!-- // SITE NAVIGATION MENU -->
@@ -206,26 +207,28 @@
 						<div id="checkout-collapse3" class="panel-collapse collapse">
 
 							<div class="radio">
-								<form>
+<!-- 								<form> -->
 									&nbsp;&nbsp; &nbsp;&nbsp;默认收货地址
 									<div class="Cadress">
-										<div class="add_mi">
-											<input type="radio" value="新增收货地址1" name="address" />
-											<p style="border-bottom: 1px dashed #ccc; line-height: 28px;">${CosAddress}</p>
+										<div class="add_mi"> 
+<%-- 												<input type="hidden" name="morenAdd" value="${CosAddress}" id="morenAdd"> --%>
+<!-- 											<input type="radio" value="默认收货地址" name="address" /> -->
+											<p style="border-bottom: 1px dashed #ccc; line-height: 28px;">${CosAddress}<br><br>
+											<button class="btn btn-primary" name="moren" onclick="defaultAddress()" type="submit">使用默认地址</button><br></p>
+<!-- 											<br> -->
+											
 <!-- 											<p>萧山 北干 明怡花苑53幢3单元 13735683918</p> -->
 										</div>
 
 										<br>
 										<br>
-										<br> &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio"
-											value="新增收货地址" name="address" />新增收货地址<br>
-
+<!-- 										 &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio"value="新增收货地址" name="address" /> -->
+										新增收货地址<br>
 									</div>
 
-								</form>
-
-
-
+<!-- 								</form> -->
+								<form action="cosaddress/add.do" method="post">
+								
 								<div class="panel-body">
 										<div class="row">
 											<div class="col-xs-12 col-sm-12 col-md-6">
@@ -346,22 +349,73 @@
 										</div>
 								</div>
 								<div class="space20 clearfix"></div>
-								<button class="btn btn-primary">继续</button>
+					
+								<input type="hidden" name="" value="">
+								
+								
+								<button class="btn btn-primary" name="xinzeng" type="submit" onclick="addAddress()">使用新增的地址</button>
+								</form>
+								
+								
+								<script type="text/javascript">
+								
+									function defaultAddress(){	
+											alert("enter moren");
+											$.ajax({
+												url:"cosaddress/default.do",
+												type:"post",
+												dataType:"text",
+												success:function (data) { 
+													alert(data);
+													document.getElemenyById("address").innerHTML=data;
+												}, 
+								                error:function(){alert("wrong!");},
+								
+											});
+										}
+									
+									function addAddress(){
+										alert("enter xinzeng");
+										$.ajax({
+											url:"cosaddress/add.do",
+											type:"post",
+											dataType:"text",
+											success:function (data) { 
+												document.getElemenyById("freshAddress").innerHTML=data;
+											}, 
+							                error:function(){alert("wrong!");},
+							
+										});	
+		
+									}
+									
+								
+								
+								</script>
+								
+								
 							</div>
 						</div>
 					</div>
 					<div class="panel panel-default">
-						<div class="panel-heading">
+						<div id="freshAddress" class="panel-heading">
 							<h4 class="panel-title">
 								<a data-toggle="collapse" data-parent="#checkout-collapse"
 									href="#checkout-collapse6"> <span class="step">02</span>
 									订单详情
 								</a>
 							</h4>
+							
+							
+							
 						</div>
 						<div id="checkout-collapse6" class="panel-collapse collapse">
 							<div class="panel-body">
-								<div class="row">
+								<div class="row" >
+								
+								
+								
+									
 									<div class="col-xs-12 col-sm-6 pull-right center-sm">
 										<table class="shop-summary">
 											<tr>
@@ -410,7 +464,7 @@
 		<!-- FIRST ROW -->
 		<div class="section">
 			<div class="container">
-				<div class="row">
+				<div class="row" >
 
 					<div class="space40 visible-sm clearfix"></div>
 

@@ -242,7 +242,7 @@
 								}
 								
 								function addGoods(){
-									window.open ('goodsForm.jsp','添加商品','height=450px,width=500px,top=300,left=425,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no');
+									window.open ('goods/tanchuForm.do','添加商品','height=450px,width=500px,top=300,left=425,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no');
 								}
 								
 								

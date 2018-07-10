@@ -122,6 +122,14 @@ public class CartAction {
 		return mav;
 	}
 	
-	
+	@RequestMapping("changeNum.do")
+	@ResponseBody
+	public String changeNum(HttpServletRequest request){
+		int num=Integer.parseInt(request.getParameter("inputNum"));
+		int cartId=Integer.parseInt(request.getParameter("cartId"));
+		System.out.println("数量"+num+"    id"+cartId);
+		cartServiceImpl.setCartNum(cartId, num);
+		return "success";
+	}
 	
 }

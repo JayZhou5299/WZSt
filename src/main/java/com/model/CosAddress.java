@@ -9,6 +9,11 @@ public class CosAddress {
 	private String recv_area;
 	private String recv_addr;
 	private int is_default = 0;
+	
+	@Override
+	public String toString() {
+		return recv_province+"省  "+recv_city+"市  "+recv_area+"区  "+recv_addr+"\n"+recv_person+"收  "+"电话 ："+recv_tel;
+	}
 
 	public int getUser_id() {
 		return user_id;
@@ -73,5 +78,7 @@ public class CosAddress {
 	public void setIs_default(int is_default) {
 		this.is_default = is_default;
 	}
+
+
 
 }

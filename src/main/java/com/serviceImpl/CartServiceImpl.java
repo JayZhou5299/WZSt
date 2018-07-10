@@ -50,4 +50,11 @@ public class CartServiceImpl implements CartService {
 		cart.setGoods_price(price);
 		cartDao.saveCart(cart);
 	}
+	
+	public void setCartNum(int cartId, int num){
+		Cart cart = new Cart();
+		cart.setCart_id(cartId);
+		cart.setGoods_num(num);
+		cartDao.updateCartByid(cart);
+	}
 }

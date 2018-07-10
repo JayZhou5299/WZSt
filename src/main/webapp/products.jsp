@@ -98,9 +98,19 @@
 									</div> <!-- // SEARCH BOX -->
 								</li>
 
-								<li><a href="cart/listUserCart.do" id="total-cart"> <i
-										class="iconfont-shopping-cart round-icon"></i>
-								</a></li>
+<!-- 								<li><a href="cart/listUserCart.do" id="total-cart"> <i -->
+<!-- 										class="iconfont-shopping-cart round-icon"></i> -->
+<!-- 								</a></li> -->
+
+									<li data-toggle="sub-header" data-target="#sub-cart">
+									购物车 
+									<a href="javascript:void(0);"
+									id="total-cart"> 
+										<li><a href="cart/listUserCart.do" id="total-cart"> 
+ 										<i class="iconfont-shopping-cart round-icon"></i></a>
+								    </a>
+									</li>
+
 							</ul>
 						</div>
 					</div>
@@ -463,7 +473,7 @@
 										style="width: 292px; position: relative; float: left !important; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
 
 
-										<div class="product " data-product-id="1"
+										<div class="product " data-product-id="${pro.goods_id}"
 											style="visibility: visible; opacity: 1;">
 
 
@@ -471,13 +481,11 @@
 												<img alt="" class="lazyLoad thumb" src="${pro.goods_pic}">
 												<div class="hover">
 													<form action="cart/add.do" method="post">
-														<input type="hidden" name="goods_name"
-															value="${pro.goods_name}"> <input type="hidden"
-															name="goods_pic" value="${pro.goods_pic}"> <input
-															type="hidden" name="goods_price"
-															value="${pro.goods_price}"> <input type="hidden"
-															name="goods_id" value="${pro.goods_id}"> <a
-															href="" class="entry-url"></a>
+														<input type="hidden" name="goods_name" value="${pro.goods_name}"> 
+														<input type="hidden" name="goods_pic" value="${pro.goods_pic}"> 
+														<input type="hidden" name="goods_price" value="${pro.goods_price}"> 
+														<input type="hidden" name="goods_id" value="${pro.goods_id}"> 
+														<a href="" class="entry-url"></a>
 														<ul class="icons unstyled">
 															<li>
 																<div class="circle ribbon ribbon-sale">Sale</div>
@@ -488,6 +496,12 @@
 																	<i class="iconfont-shopping-cart"></i>
 																</button></li>
 														</ul>
+
+<!-- 															<li><a href="#" class="circle add-to-cart"><i -->
+<!-- 																	class="iconfont-shopping-cart"></i></a></li> -->
+
+
+
 													</form>
 												</div>
 											</div>

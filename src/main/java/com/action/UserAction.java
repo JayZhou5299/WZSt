@@ -1,5 +1,6 @@
 package com.action;
-import com.model.Cart;
+import com.model.CosAddress;
+import com.model.Notes;
 import com.model.User;
 import com.serviceImpl.CartServiceImpl;
 import com.serviceImpl.CosAddressServiceImpl;
@@ -35,6 +36,19 @@ public class UserAction {
 	
 	@Resource
 	CosAddressServiceImpl cosAddressServiceImpl;
+	
+	
+	@RequestMapping("zhifu.do")
+	public ModelAndView zhifu(HttpServletRequest request,HttpSession session){
+		int price = Integer.parseInt(request.getParameter("price"));
+		User user = (User) session.getAttribute("User");
+		user.setUser_integ(0);
+		user.setUser_balance(user.getUser_balance()-price);
+		ModelAndView mav = new ModelAndView("支付成功界面");
+		return mav;
+	}
+	
+	
 	
 	
 	//用户注册
@@ -151,6 +165,20 @@ public class UserAction {
 		return mav;
 	}
 	
+	
+	
+	@RequestMapping("Mine.do")
+	public ModelAndView listNotes(HttpSession session){
+		User user = (User) session.getAttribute("User");
+		int user_id = user.getUser_id();
+		List<Notes> list =  notesServiceImpl.SearchNotesByUser(user_id);
+		ModelAndView mav = new ModelAndView("userInfo");
+		CosAddress defaultAdd = cosAddressServiceImpl.Listdefaultaddress(user.getUser_id());
+		mav.addObject("Defaultaddress",defaultAdd.getRecv_province()+" "+defaultAdd.getRecv_city()+" "+defaultAdd.getRecv_area()+" "+defaultAdd.getRecv_addr()+" "+defaultAdd.getRecv_person()+"收 \n电话:"+defaultAdd.getRecv_tel());
+		mav.addObject("NotesList",list);
+//		System.out.println(list.get(0).getNote_name()+"7.10");
+		return mav;
+	}
 	
 	
 	

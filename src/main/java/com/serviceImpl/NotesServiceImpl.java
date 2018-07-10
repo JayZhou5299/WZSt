@@ -64,4 +64,9 @@ public class NotesServiceImpl implements NotesService {
 		userDao.updateUser(user);
 	}
 
+	public List<Notes> SearchNotes(String name) {
+		System.out.println("x"+notesDao.SearchNotes(name).get(0).getNote_name());
+		return notesDao.SearchNotes(name);
+	}
+
 }

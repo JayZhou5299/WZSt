@@ -16,8 +16,7 @@ public class GoodsServiceImpl implements  GoodsService{
 	GoodsDao goodsDao;
 	
 	public void saveGoods(Goods goods) {
-		// TODO Auto-generated method stub
-		
+		goodsDao.saveGoods(goods);
 	}
 
 	public void deleteGoods(int id) {
@@ -57,5 +56,6 @@ public class GoodsServiceImpl implements  GoodsService{
 	public Goods getGoodsById(int goodsid) {
 		return goodsDao.getGoodsById(goodsid);
 	}
+	
 
 }

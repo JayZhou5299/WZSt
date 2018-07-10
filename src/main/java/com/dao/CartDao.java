@@ -17,4 +17,6 @@ public interface CartDao {
 
 	public void updateCartByid(Cart cart);
 	
+	public void setCartNum(int cartId,int num);
+	
 }

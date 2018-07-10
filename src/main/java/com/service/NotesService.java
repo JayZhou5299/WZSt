@@ -31,6 +31,8 @@ public interface NotesService {
 	
 	public void addhot(int note_id);
 	
+	public List<Notes> SearchNotes(String name);
+	
 	
 }
 

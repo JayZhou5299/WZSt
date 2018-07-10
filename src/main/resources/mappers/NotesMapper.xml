@@ -19,7 +19,9 @@
 	</delete>
 
 	<select id="SearchNotes" parameterType="String" resultType="com.model.Notes">
-		select * from notes where Note_Des like '%#{note_des}%'
+		select * from notes where Note_Name LIKE CONCAT('%',#{content},'%') 
+		or
+		Note_Des LIKE CONCAT('%',#{content},'%')
 	</select>
 
 	<!-- <select id="SearchNotesByclass" parameterType="String" -->

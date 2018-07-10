@@ -74,13 +74,13 @@
 								<li>
 									<!-- SEARCH BOX -->
 									<div class="search-box">
-										<form action="#" method="post">
+										<form action="goods/Search.do" method="post">
 											<div class="input-iconed prepend">
-												<button class="input-icon">
+												<button class="input-icon" type="submit">
 													<i class="iconfont-search"></i>
 												</button>
 												<label for="input-search" class="placeholder">搜索…</label> <input
-													type="text" name="q" id="input-search"
+													type="text" name="content" id="input-search"
 													class="round-input full-width" required />
 											</div>
 										</form>
@@ -89,10 +89,19 @@
 
 								
 
-									<li><a href="cart/listUserCart.do" id="total-cart"> <i
-										class="iconfont-shopping-cart round-icon"></i>
-								</a></li>
-								</li>
+<!-- 									<li><a href="cart/listUserCart.do" id="total-cart"> <i -->
+<!-- 										class="iconfont-shopping-cart round-icon"></i></a> -->
+										
+										
+									<li data-toggle="sub-header" data-target="#sub-cart">
+									 
+									<a href="javascript:void(0);"
+									id="total-cart"> 
+										<li><a href="cart/listUserCart.do" id="total-cart"> 
+ 										<i class="iconfont-shopping-cart round-icon"></i></a>
+								    </a>
+									</li>
+<!-- 								</li> -->
 							</ul>
 						</div>
 					</div>
@@ -144,8 +153,9 @@
 								<li><a href="goods/SearchgoodsByclass.do">主页</a></li>
 								<li><a href="notes/listnotes.do">笔 记</a></li>
 								<li><a href="goods/listproducts.do">商 城</a></li>
-								<li><a href="notes/addhot.do">我 的</a></li>
-								<li><a href="user/ListEmail.do">TEST</a></li>
+								
+								<li><a href="user/Mine.do">我 的</a></li>
+<!-- 								<li><a href="user/ListEmail.do">TEST</a></li> -->
 							</ul>
 							
 							<!-- MOBILE MENU -->
@@ -976,21 +986,7 @@
 
 							<div class="col-xs-12 col-sm-12 col-md-3">
 								<section class="widget widget-subscription">
-									<h5 class="widget-title">Newletter</h5>
-									<div class="widget-content">
-										<p>Subscribe to be the first to know about Sales, Events,
-											and Exclusive Offers!</p>
-										<form action="#" method="post">
-											<div class="input-group">
-												<label for="subscription-email" class="placeholder">Enter
-													Your Email</label> <input type="email" id="subscription-email"
-													name="email" class="form-control" required /> <span
-													class="input-group-btn">
-													<button class="btn btn-primary">Subscribe</button>
-												</span>
-											</div>
-										</form>
-									</div>
+									<h5 class="widget-title"><a href="manager_login.jsp">管理员入口</a></h5>
 								</section>
 							</div>
 
